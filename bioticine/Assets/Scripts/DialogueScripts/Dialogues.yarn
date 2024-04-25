@@ -1,5 +1,43 @@
-﻿title: Dialogues
+﻿title: BibiBirth
 tags:
 ---
+Doctor: Everyone, please pay attention.
+Doctor: I'm about to show you something amazing.
+<<wait 3>>
+Doctor: Voila!
+Doctor: My latest creation, Bioticine!
+Doctor: Let's call her Bibi for short.
+Nurse 1: What is she?
+Doctor: She is a nanomachine made to destroy all the cancer cells in the body.
+Doctor: In other words, chemotherapy is no longer needed.
+Nurse 2: Wouldn't it be risky?
+Nurse 2: I mean, she would have to navigate on her own around the body, right?
+Doctor: Not precisely.
+Doctor: Although she is sentient, we will be the one controlling her.
+Doctor: I've made a system to keep watch and control her around the human body.
+Doctor: There should be no issue.
+Doctor: Now, Bibi.
+Doctor: You are destined for greatness.
+<<jump BibiStart>>
+
+===
+title: BibiStart
+---
+Bibi: Doctor, I've gathered the necessary data.
+Bibi: This is a patient who has cancer stage III at the brain.
+Doctor: I'm sorry, your mission will have to be the core of all human beings.
+Doctor: After all, you've only gone through a few.
+Bibi: Please trust in my capabilities. 
+Bibi: With your guidance, and my skills, I can take this on easily.
+Bibi: Like a piece of cake.
+Doctor: That's the confidence I admire.
+Bibi: Much appreciated, Doctor.
+Doctor: Remember, if you lose all your health, I'll have to take you out and fix you back up.
+Doctor: Not that I'd complain. This is your first ever actual mission that involved cancer.
+Doctor: In a human being, at that.
+Bibi: Please send me in whenever you're ready.
+<<wait 3>>
+Doctor: Good luck, Bibi.
+Doctor: I'll help you.
 
 ===

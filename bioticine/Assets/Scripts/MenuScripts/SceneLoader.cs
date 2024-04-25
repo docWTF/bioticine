@@ -8,6 +8,17 @@ public class SceneLoader : MonoBehaviour
     public Animator transitionAnimator; // Assign this in the inspector
     public float transitionTime = 1f;
 
+    public void QuitGame()
+    {
+        Debug.Log("Quit game requested");
+
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
+
     void Awake()
     {
         if (Instance == null)
