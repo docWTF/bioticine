@@ -59,7 +59,81 @@ Doctor: I wouldn't scold you since you're more prone to mistakes with such a ser
 Bibi: I'll make sure to try my best.
 Bibi: Please send me in whenever you're ready.
 <<wait 3>>
-Doctor: Good luck, Bibi.
-Bibi: Thank you, Doctor.
-
+===
+title: BibiStomachStart
+---
+Bibi: Doctor, I've entered the patient.
+Bibi: It seems that I am currently in the stomach.
+Doctor: Can you describe your surroundings?
+Bibi: Well, as expected, nothing but stomach acid and chunks of food.
+Bibi: It smells rancid in here.
+Doctor: Turn off your smelling senses for the time being. I know it can be gassy.
+Bibi: Doctor, I've gathered and scanned for harmful cells.
+Bibi: It seems there are indeed some in here.
+Bibi: I also see a huge cancer cell up in the ceiling of the stomach.
+Doctor: Good. Make sure you watch out for the acid before going in.
+Bibi: I got it.
+===
+title: BibiStomachEnd
+---
+Doctor: Are you okay, Bibi?
+Bibi: Yes, Doctor. I'm okay. Where should I go after this?
+Doctor: Well, I was about to praise you for your work, but you're determined, eh?
+Bibi: Completing the mission is part of my duty.
+Doctor: Fair...
+Doctor: Anyways, you should start heading down to the small intestines.
+Doctor: You still have 3 organs to go to. This is just the beginning.
+Bibi: Understood.
+===
+title: BibiIntestineStart
+---
+Bibi: Ugh... it's slimy in here...
+Doctor: Hang in there. Past this and you can enter the bloodstream.
+Doctor: What's the condition of the intestines?
+Bibi: There are blotches of blood here, and a lot of bacteria.
+Bibi: Not only that, combat is much less effective here.
+Bibi: The intestines are narrow, therefore I can't dodge and fight super well.
+Bibi: I don't want to risk hurting the patient.
+Doctor: Since you're as small as a cell, you won't hurt the patient.
+Doctor: Just be more careful dodging.
+Bibi: There's also another cancer cell here.
+Doctor: Jackpot. Be careful.
+===
+title: BibiIntestineEnd
+---
+Bibi: Well, that was a challenge.
+===
+title: BibiHeartStart
+---
+===
+title: BibiHeartEnd
+---
+===
+title: BibiBrainStart
+---
+===
+title: BibiEnd
+---
+Bibi: Did I... make it?
+Bibi: Where am I?
+???: Bibi?
+Bibi: Hello? My vision is being repaired slowly...
+Bibi: I can't see well...
+???: Bibi! You made it!
+Bibi: Doctor?
+Doctor: Bibi, are your controls and senses back up?
+Bibi: Yeah...
+Bibi: I'm okay now.
+Bibi: You weren't wrong when you said the brain is the core of all humanity.
+Bibi: They're complex, complicated, and it stores every single information and memory.
+Bibi: Not to mention, it controls all the organs too.
+Doctor: And yet, you persevered just like that.
+Doctor: You're a wonderful specimen. A perfect nanomachine.
+Doctor: My perfect specimen that will save humanity one by one.
+Bibi: You're awfully poetic. Stop it.
+Doctor: Sorry, haha... Just admiring my lifelong's work.
+Bibi: No time to admire. It's best we keep working.
+Doctor: Yes, yes. Let's go.
+Doctor: I'll treat you to a piece of beef later.
+Bibi: Yay! Raw Beef!
 ===
