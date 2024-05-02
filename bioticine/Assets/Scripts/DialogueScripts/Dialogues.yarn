@@ -33,32 +33,52 @@ Doctor: You are destined for greatness, I believe in you.
 ===
 title: BibiStart
 ---
-Bibi: Doctor, I've gathered the necessary data.
-Bibi: This is a patient who has cancer stage III at the heart.
-Bibi: Are you sure that I am clear enough to perform this mission?
+Bibi: Doctor, are you occupied?
+Bibi: I have come with information regarding Ms. Ayanna.
+Doctor: Yes, Bibi, report in.
+Bibi: I've gathered some data for the latest patient.
+Bibi: This is a patient who has stage III stomach cancer.
+Bibi: Cancer... Are you sure I could handle this mission?
 Doctor: Yes, as a matter of fact.
-Doctor: You've gone throuhg a lot of trial and error, Bibi.
-Doctor: I'm just sorry that your mission will have to be the core of all human beings.
+Doctor: You've gone through a lot of trial and error, Bibi.
+Doctor: Well... to be fair, you have the right to be concerned.
 Doctor: After all, you've only gone through a few missions officially.
-Bibi: As you've said: you should trust in my capabilities. 
-Bibi: With your guidance, and my skills, I can take this on quite easily.
-Bibi: Like a piece of cake.
-Doctor: That's the confidence I admire.
-Bibi: Much appreciated, Doctor.
+Doctor: Small missions, in fact. This is your first cancer mission, right?
+Bibi: Yes, Doctor. This will be my first time tackling a cancer cell.
+Bibi: I've scanned through a lot of research online, but I was never put into practice.
+Bibi: With your guidance, and my skills, I might be able to tackle this quite easily.
+Doctor: That's the confidence I admire, but don't go too overboard now, Bibi.
+Doctor: You are prone to failure. Don't forget that.
+Bibi: Yes, I appreciate the warning, Doctor.
 Bibi: Although I'm prone to failure, failure is a sign of progress, is it not?
-Doctor: Perhaps.
+Doctor: Perhaps. You may be right.
 Doctor: But this is no time for chatting.
 Bibi: Right. We must make haste.
-Bibi: The family of the patient has been begging the medical staff for weeks now.
+Bibi: The cancer cell could develop and make conditions worse at any time.
+Bibi: The family of the patient has been bugging the medical staff ever since her admission to the hospital.
+Bibi: Some of them even begged to discharge them to cure them through the means of exorcism.
 Bibi: I wonder if they'll be okay...
-Doctor: The family's not important right now. Focus.
+Doctor: What the family thinks is not important
+Doctor: No religion or exorcism will be able to cure a health condition.
+Doctor: If we can't change their minds then let them believe what they think is right.
+Doctor: Sooner or later they'll see the rights and wrongs.
 Bibi: Right. My apologies.
-Doctor: Remember, if you lose all your health, I'll have to take you out and fix you back up.
+Doctor: Remember. Like other missions before, you have multiple bodies.
+Doctor: If this current one dies, all your data will be saved in the cloud. 
+Doctor: I'll just promptly send in a new body.
+Doctor: Although, progress will be reverted back to the beginning if you do wound up dead.
 Doctor: Not that I'd complain. This is your first ever actual mission that involved cancer.
 Doctor: I wouldn't scold you since you're more prone to mistakes with such a serious mission on your shoulders.
 Bibi: I'll make sure to try my best.
 Bibi: Please send me in whenever you're ready.
+Doctor: Alright. Standby.
 <<wait 3>>
+Doctor: Ms. Ayanna, how are you feeling?
+Patient Ayanna: Well... I guess I'm stable for the time being.
+Patient Ayanna: It's still difficult to eat and digest everything.
+Doctor: Hmm. Any feelings of nausea, bloating, pain of some sorts?
+Patient Ayanna: Yes, sort of.
+Patient Ayanna: 
 ===
 title: BibiStomachStart
 ---
@@ -85,57 +105,21 @@ Doctor: Anyways, you should start heading down to the small intestines.
 Doctor: You still have 3 organs to go to. This is just the beginning.
 Bibi: Understood.
 ===
-title: BibiIntestineStart
----
-Bibi: Ugh... it's slimy in here...
-Doctor: Hang in there. Past this and you can enter the bloodstream.
-Doctor: What's the condition of the intestines?
-Bibi: There are blotches of blood here, and a lot of bacteria.
-Bibi: Not only that, combat is much less effective here.
-Bibi: The intestines are narrow, therefore I can't dodge and fight super well.
-Bibi: I don't want to risk hurting the patient.
-Doctor: Since you're as small as a cell, you won't hurt the patient.
-Doctor: Just be more careful dodging.
-Bibi: There's also another cancer cell here.
-Doctor: Jackpot. Be careful.
-===
-title: BibiIntestineEnd
----
-Bibi: Well, that was a challenge.
-===
-title: BibiHeartStart
----
-===
-title: BibiHeartEnd
----
-===
-title: BibiBrainStart
----
-Bibi: I've made it to the brain. Oh jeez, the surface here is squishy.
-Doctor: Be delicate with your footsteps.
-Bibi: Oh?
-Doctor: You're stepping onto brain matter. Slight damage and it's over.
-Bibi: Okay... Right.
-Bibi: But then what happens if I get into combat?
-Doctor: I've equipped you with boots that helps you levitate a few milimeters off the surface.
-Doctor: You won't step on it directly, but still be cautious with how you handle your syringe.
-Bibi: Fancy. Thanks, Doc.
-===
+
 title: BibiEnd
 ---
 Bibi: Did I... make it?
 Bibi: Where am I?
 ???: Bibi?
-Bibi: Hello? My vision is being repaired slowly...
-Bibi: I can't see well...
+Bibi: Hello? All my functions are restoring slowly.
+Bibi: I can't see that well.
 ???: Bibi! You made it!
-Bibi: Doctor?
+Bibi: That voice... Doctor?
 Doctor: Bibi, are your controls and senses back up?
-Bibi: Yeah...
-Bibi: I'm okay now.
+Bibi: Most of it is, some are still rebooting.
+Bibi: But aside from that, I'm okay now.
 Bibi: You weren't wrong when you said the brain is the core of all humanity.
 Bibi: They're complex, complicated, and it stores every single information and memory.
-Bibi: Not to mention, it controls all the organs too.
 Doctor: And yet, you persevered just like that.
 Doctor: You're a wonderful specimen. A perfect nanomachine.
 Doctor: My perfect specimen that will save humanity one by one.
