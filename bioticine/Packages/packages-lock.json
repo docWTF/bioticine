@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.inspiaaa.unityhfsm": {
-      "version": "file:C:/Users/minhk/OneDrive/Desktop/RMIT/Weird shit/ai-series-part-47-main/Library/PackageCache/com.inspiaaa.unityhfsm@2168c17857",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.2d.animation": {
       "version": "9.1.0",
       "depth": 0,
