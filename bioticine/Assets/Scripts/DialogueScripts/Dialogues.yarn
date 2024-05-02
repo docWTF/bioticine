@@ -71,14 +71,43 @@ Doctor: Not that I'd complain. This is your first ever actual mission that invol
 Doctor: I wouldn't scold you since you're more prone to mistakes with such a serious mission on your shoulders.
 Bibi: I'll make sure to try my best.
 Bibi: Please send me in whenever you're ready.
-Doctor: Alright. Standby.
+Doctor: Alright. Please go on standby.
 <<wait 3>>
 Doctor: Ms. Ayanna, how are you feeling?
 Patient Ayanna: Well... I guess I'm stable for the time being.
 Patient Ayanna: It's still difficult to eat and digest everything.
 Doctor: Hmm. Any feelings of nausea, bloating, pain of some sorts?
 Patient Ayanna: Yes, sort of.
-Patient Ayanna: 
+Patient Ayanna: It's mostly the feeling of nausea and pain, though.
+Doctor: Your family has been bugging us for quite some time now.
+Doctor: Mostly to get you to discharge and perform exorcism on you to... well...
+Doctor: Somehow cure all the cancer cells out of you.
+Patient Ayanna: Of course they would do that. Are they stupid?
+Doctor: I lowkey agree...
+Doctor: Regardless, this should be a smooth process.
+Doctor: I will now give you a Bioticine.
+Patient Ayanna: What's a Bioticine?
+Doctor: Just a medicine that will cure cancer.
+Patient Ayanna: That's a thing? Wouldn't that cost a lot?
+Doctor: Oh, nonono. This has already been counted towards your hospital bills.
+Doctor: That is, if you did notice.
+Patient Ayanna: Huh, I didn't notice.
+Doctor: See? If you don't look closely, the hospital might scam you out of a few more thousand dollars.
+Doctor: That's how a lot of patients get into debt. They don't pay attention to what's in the bills.
+Doctor: That's a secret by the way. Don't leak it, or I might get fired.
+Doctor: The healthcare system is already fucked as it is.
+Patient Ayanna: I don't gain anything from telling anybody, so...
+Doctor: Exactly, you're learning!
+Patient Ayanna: So, I should drink this right?
+Doctor: Yeah, and then you get some rest afterwards.
+Doctor: Although, if there's any issues, I will need to wake you up and get you to drink another pill.
+Patient Ayanna: Why...?
+Doctor: Don't question science.
+Patient Ayanna: I have the right to know as a patient!
+Doctor: DON'T. Question science.
+Patient Ayanna: Okay... I'll drink it now.
+Patient Ayanna: *gulp*
+Bibi: 
 ===
 title: BibiStomachStart
 ---
@@ -101,9 +130,6 @@ Bibi: Yes, Doctor. I'm okay. Where should I go after this?
 Doctor: Well, I was about to praise you for your work, but you're determined, eh?
 Bibi: Completing the mission is part of my duty.
 Doctor: Fair...
-Doctor: Anyways, you should start heading down to the small intestines.
-Doctor: You still have 3 organs to go to. This is just the beginning.
-Bibi: Understood.
 ===
 
 title: BibiEnd
@@ -118,8 +144,7 @@ Bibi: That voice... Doctor?
 Doctor: Bibi, are your controls and senses back up?
 Bibi: Most of it is, some are still rebooting.
 Bibi: But aside from that, I'm okay now.
-Bibi: You weren't wrong when you said the brain is the core of all humanity.
-Bibi: They're complex, complicated, and it stores every single information and memory.
+
 Doctor: And yet, you persevered just like that.
 Doctor: You're a wonderful specimen. A perfect nanomachine.
 Doctor: My perfect specimen that will save humanity one by one.
