@@ -3,28 +3,36 @@ tags:
 ---
 Doctor: Every medical staff available, please come to the lab.
 Doctor: I'm about to show you something amazing.
+Nurse 1: What could he possibly be talking about?
+Nurse 2: Beats me. But since it's from the Doctor, it must be very important.
 <<wait 2>>
+Doctor: I'm so glad everyone got to show up at the BioLab!
+Doctor: This is going to change everyone's perspective and methods in science and medical health forever!
 Doctor: Voila!
 Doctor: My latest creation, Bioticine!
 Doctor: Let's call her Bibi for short.
 Everyone: Woah...
-<<PlaySound "Applause">>
 Nurse 1: What is she?
-Doctor: She is a nanomachine made to enter the body and destroy all bacteria and cancer cells.
-Doctor: In other words, if the patient so chooses, we can have it all go away in a matter of minutes.
-Doctor: Thanks to Bibi, she will go in and out and take all the disease away.
+Doctor: She is a nanomachine made to enter the body and destroy all bacteria, fungus, diseases, and so forth.
+Doctor: She's just a prototype for now, moreso early access than a demo.
+Doctor: But if we train her enough, she'll be able to cure even terminal and chronic illnesses!
+Doctor: In other words, if the patient so chooses, we can have all their pain go away in a matter of minutes.
 Nurse 1: Have you done any particular tests to trial her yet?
 Doctor: I have. I've tried it on dead bodies in the morgue.
 Doctor: Along with a few animals.
-Doctor: She seems to be working just fine.
+Doctor: She seems to be working just fine, so I say we are in the clear to perform human examinations.
 Nurse 2: Wouldn't it be risky?
 Nurse 2: I mean, she would have to navigate on her own around the body, right?
 Doctor: Not precisely.
 Doctor: Although she is sentient, we will be the one controlling her.
-Doctor: I've made a system to keep watch and control her around the human body.
-Doctor: There should be no issue.
+Doctor: Moreso, I will be the one doing it. Only I know how to control her around efficiently.
+Doctor: I've made a system to keep watch and control her around the human body, and it took a lot of practice!
+Doctor: In the future, we will have our medical staff train to lead her around the human body!
+Doctor: But for now, leave it to me, as I will provide you with no error.
 Nurse 1: Doctor, you're amazing! Was this what you spent day and night overtime at the hospital for?
-Doctor: Precisely. I mean the eyebags say it all.
+Doctor: Precisely. I mean the eyebags say it all, eh?
+Nurse 2: Maybe you should get some sleep...
+Doctor: Trust me, I will.
 Doctor: Now, Bibi.
 Doctor: You are now the daughter of great medical science.
 Doctor: You are destined for greatness, I believe in you.
@@ -71,62 +79,125 @@ Doctor: Not that I'd complain. This is your first ever actual mission that invol
 Doctor: I wouldn't scold you since you're more prone to mistakes with such a serious mission on your shoulders.
 Bibi: I'll make sure to try my best.
 Bibi: Please send me in whenever you're ready.
-Doctor: Alright. Standby.
+Doctor: Alright. Please go on standby.
 <<wait 3>>
 Doctor: Ms. Ayanna, how are you feeling?
 Patient Ayanna: Well... I guess I'm stable for the time being.
 Patient Ayanna: It's still difficult to eat and digest everything.
 Doctor: Hmm. Any feelings of nausea, bloating, pain of some sorts?
 Patient Ayanna: Yes, sort of.
-Patient Ayanna: 
+Patient Ayanna: It's mostly the feeling of nausea and pain, though.
+Doctor: Your family has been bugging us for quite some time now.
+Doctor: Mostly to get you to discharge and perform exorcism on you to... well...
+Doctor: Somehow cure all the cancer cells out of you.
+Patient Ayanna: Of course they would do that. Are they stupid?
+Doctor: I lowkey agree...
+Doctor: Regardless, this should be a smooth process.
+Doctor: I will now give you a Bioticine.
+Patient Ayanna: What's a Bioticine?
+Doctor: Just a medicine that will cure cancer.
+Patient Ayanna: That's a thing? Wouldn't that cost a lot?
+Doctor: Oh, nonono. This has already been counted towards your hospital bills.
+Doctor: That is, if you did notice.
+Patient Ayanna: Huh, I didn't notice.
+Doctor: See? If you don't look closely, the hospital might scam you out of a few more thousand dollars.
+Doctor: That's how a lot of patients get into debt. They don't pay attention to what's in the bills.
+Doctor: That's a secret by the way. Don't leak it, or I might get fired.
+Doctor: The healthcare system is already fucked as it is.
+Patient Ayanna: Is it health protocol to swear?
+Doctor: Does it really concern you that much?
+Doctor: I mean, really? Profanity over your own health?
+Patient Ayanna: I don't gain anything from telling anybody, so...
+Doctor: Exactly, you're learning!
+Doctor: You have more understanding than a majority of adults!
+Doctor: You deserve an award.
+Patient Ayanna: ...
+Doctor: Moving on.
+Doctor: Here's the Bioticine.
+Patient Ayanna: So, I should drink this right?
+Doctor: Yeah, and then you get some rest afterwards.
+Doctor: Although, if there's any issues, I will need to wake you up and get you to drink another pill.
+Patient Ayanna: Why...?
+Doctor: Don't question science.
+Patient Ayanna: I have the right to know as a patient!
+Doctor: DON'T. Question science.
+Patient Ayanna: Okay... I'll drink it now.
+Patient Ayanna: *gulp*
+Doctor: Okay, good. Rest well now.
+Patient Ayanna: I'm scared...
+Doctor: It's just a few cancer cells, you'll be fine~!
+Patient Ayanna: That only make things worse!
+Doctor: Skill issue.
+<<wait 5>>
 ===
+
 title: BibiStomachStart
 ---
-Bibi: Doctor, I've entered the patient.
-Bibi: It seems that I am currently in the stomach.
-Doctor: Can you describe your surroundings?
-Bibi: Well, as expected, nothing but stomach acid and chunks of food.
-Bibi: It smells rancid in here.
-Doctor: Turn off your smelling senses for the time being. I know it can be gassy.
-Bibi: Doctor, I've gathered and scanned for harmful cells.
-Bibi: It seems there are indeed some in here.
-Bibi: I also see a huge cancer cell up in the ceiling of the stomach.
-Doctor: Good. Make sure you watch out for the acid before going in.
-Bibi: I got it.
+Bibi: Doctor, can you hear me?
+Doctor: Yes, yes. I finally got the signal.
+Doctor: Where are you at?
+Bibi: Inside her stomach. It's extremely gastrous.
+Doctor: Well, isn't it supposed to be?
+Bibi: Yeah, I'm just informing you, Doctor.
+Bibi: I'll start scanning now.
+Bibi: Biotic Scan!
+<<wait 2>>
+Doctor: Got the data.
+Doctor: Sheesh, this thing always astonishes me. Being better than a damn expensive ultrasound too.
+Bibi: Doctor.
+Doctor: Can't a guy complain every once in a while?
+Bibi: No. Especially not you.
+Doctor: Anyways, traverse carefully. I don't want to wake up Ayanna too often now.
+Bibi: What, you're scared of overdosing her?
+Doctor: I injected you into a painkiller. 
+Doctor: You understand the consequences, right?
+Bibi: Sigh... yes.
+Doctor: Precisely. So, let's begin.
+
 ===
-title: BibiStomachEnd
+title: BibiStomachBoss
 ---
-Doctor: Are you okay, Bibi?
-Bibi: Yes, Doctor. I'm okay. Where should I go after this?
-Doctor: Well, I was about to praise you for your work, but you're determined, eh?
-Bibi: Completing the mission is part of my duty.
-Doctor: Fair...
-Doctor: Anyways, you should start heading down to the small intestines.
-Doctor: You still have 3 organs to go to. This is just the beginning.
-Bibi: Understood.
+Doctor: Bibi, you're super close to the cancer cell.
+Bibi: I mean, I'm already here.
+Bibi: I'm right in it's vicinity.
+Doctor: Whaaat? That quick?
+Bibi: Doctor. Not the time to joke around.
+Bibi: Especially when you've personally been tracking my progress!
+Doctor: Jeez, lax a little.
+Bibi: So... What am I supposed to do?
+Bibi: You're supposed to guide me.
+Doctor: Okay, so, do you know those roguelike games?
+Bibi: Yeah? I've seen you play a few.
+Doctor: And you know how there's a boss?
+Bibi: Mhm? What are you implying.
+Doctor: I'm saying you have to fight it like one.
+Bibi: Oh. OH! Okay!
+Doctor: That was surprisingly easy.
 ===
 
 title: BibiEnd
 ---
-Bibi: Did I... make it?
 Bibi: Where am I?
 ???: Bibi?
 Bibi: Hello? All my functions are restoring slowly.
-Bibi: I can't see that well.
 ???: Bibi! You made it!
 Bibi: That voice... Doctor?
 Doctor: Bibi, are your controls and senses back up?
-Bibi: Most of it is, some are still rebooting.
+Bibi: Yes, Doctor. I'm still not used to switching bodies that seamlessly.
 Bibi: But aside from that, I'm okay now.
-Bibi: You weren't wrong when you said the brain is the core of all humanity.
-Bibi: They're complex, complicated, and it stores every single information and memory.
-Doctor: And yet, you persevered just like that.
-Doctor: You're a wonderful specimen. A perfect nanomachine.
-Doctor: My perfect specimen that will save humanity one by one.
-Bibi: You're awfully poetic. Stop it.
+Doctor: That's good. You'll get used to it eventually.
+Doctor: You're a prototype in science's eyes, but to me, you're already perfect.
+Doctor: A perfect nanomachine.
+Doctor: The specimen that will save humanity from it's own chronic disease one by one.
+Bibi: You're... being weird. Stop that.
 Doctor: Sorry, haha... Just admiring my lifelong's work.
-Bibi: No time to admire. It's best we keep working.
-Doctor: Yes, yes. Let's go.
-Doctor: I'll treat you to a piece of beef later.
+Doctor: I mean, think about it: You pour your years into one work, and they're just perfect!
+Doctor: Like you mentioned before, there's always trial and error, but hey, it worked out in the end.
+Bibi: I appreciate the sentiment, Doctor, but there is more work to be done.
+Doctor: Yes, yes. I know.
+Doctor: We must get back to work, I will need to fix you up a lot more.
+Doctor: And hey, since you performed well today, why don't I treat you to something later?
+Bibi: Treat?
+Doctor: A piece of raw beef. Your favorite organic matter to chew on.
 Bibi: Yay! Raw Beef!
 ===
