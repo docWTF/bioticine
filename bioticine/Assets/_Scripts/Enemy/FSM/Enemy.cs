@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityHFSM;
+using FSM;
 using LlamAcademy.Sensors;
 using UnityEngine.AI;
 
@@ -10,7 +10,7 @@ namespace LlamAcademy.FSM
     {
         [Header("References")]
         [SerializeField]
-        private Player Player;
+        private PlayerController Player;
 
         [Header("Attack Config")]
         [SerializeField]
@@ -58,8 +58,8 @@ namespace LlamAcademy.FSM
             );
 
             // Attack Transitions
-            EnemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Chase, EnemyState.Attack, ShouldMelee));
-            EnemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Idle, EnemyState.Attack, ShouldMelee));
+            EnemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Chase, EnemyState.Attack, ShouldMelee, true));
+            EnemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Idle, EnemyState.Attack, ShouldMelee, true));
             EnemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Attack, EnemyState.Chase, IsNotWithinIdleRange));
             EnemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Attack, EnemyState.Idle, IsWithinIdleRange));
 
