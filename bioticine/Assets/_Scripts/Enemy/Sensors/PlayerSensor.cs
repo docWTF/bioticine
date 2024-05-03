@@ -12,7 +12,7 @@ namespace LlamAcademy.Sensors
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out PlayerController player))
+            if (other.TryGetComponent(out Player player))
             {
                 OnPlayerEnter?.Invoke(player.transform);
             }
@@ -20,7 +20,7 @@ namespace LlamAcademy.Sensors
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out PlayerController player))
+            if (other.TryGetComponent(out Player player))
             {
                 OnPlayerExit?.Invoke(other.transform.position);
             }
