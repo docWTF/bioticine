@@ -6,6 +6,7 @@ public class MenuPopUp : MonoBehaviour
 {
     public GameObject SettingsMenu;
     public GameObject CreditsMenu;
+    Animator anim;
 
     public void CreditsOff()
     {
@@ -16,6 +17,7 @@ public class MenuPopUp : MonoBehaviour
     {
         CreditsMenu.SetActive(true);
     }
+
     public void SettingsOff()
     {
         SettingsMenu.SetActive(false);
