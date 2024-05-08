@@ -54,9 +54,10 @@ public class PlayerActions : MonoBehaviour
     {
         isAttacking = true;
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackActive(attackCombo);
+        yield return new WaitForSeconds(0.1f);
         weaponMelee.GetComponent<MeleeWeapon>().DamageEnemy();
-        yield return new WaitForSeconds(0.3f);
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackInactive(attackCombo);
+        yield return new WaitForSeconds(0.3f);
         weaponMelee.GetComponent<MeleeWeapon>().ClearEnemyList();
         attackCombo += 1;
         isAttacking = false;
