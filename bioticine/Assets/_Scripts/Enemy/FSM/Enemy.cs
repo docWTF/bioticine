@@ -13,7 +13,7 @@ namespace LlamAcademy.FSM
     {
         [Header("References")]
         [SerializeField]
-        private Player Player;
+        private PlayerController Player;
         //[SerializeField]
         //private Spit SpitPrefab;
         //[SerializeField]
@@ -153,9 +153,9 @@ namespace LlamAcademy.FSM
         //LastBounceTime + BounceCooldown <= Time.time
         //&& IsInMeleeRange;
 
-        private bool ShouldSpit(Transition<EnemyState> Transition) =>
-            LastAttackTime + AttackCooldown <= Time.time
-                   && !IsInMeleeRange;
+        //private bool ShouldSpit(Transition<EnemyState> Transition) =>
+            //LastAttackTime + AttackCooldown <= Time.time
+                   //&& !IsInMeleeRange;
         //&& IsInSpitRange;
 
         private bool ShouldMelee(Transition<EnemyState> Transition) =>
