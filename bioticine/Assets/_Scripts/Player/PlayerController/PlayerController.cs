@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
         player = playerControls.Player;
 
         playerMovement = GetComponent<PlayerMovement>();
+        playerActions = GetComponent<PlayerActions>();
 
         player.Dash.performed += ctx => playerMovement.Dash(player.Movement.ReadValue<Vector2>());
         player.Attack.performed += ctx => playerActions.Attack();

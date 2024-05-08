@@ -41,13 +41,9 @@ public class PlayerMovement : MonoBehaviour
 
         rigidBody.velocity = new Vector3(input.x, 0, input.y) * speed;
 
-        if (input.x != 0 && input.x < 0)
+        if (input.x != 0)
         {
-            spriteRenderer.flipX = false;
-        }
-        else if (input.x != 0 && input.x > 0)
-        {
-            spriteRenderer.flipX = true;
+            transform.rotation = Quaternion.Euler(0, input.x < 0 ? 0 : 180, 0);
         }
 
     }
