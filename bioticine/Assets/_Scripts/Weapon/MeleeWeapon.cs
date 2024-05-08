@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class MeleeWeapon : MonoBehaviour
 {
@@ -30,7 +32,7 @@ public class MeleeWeapon : MonoBehaviour
         foreach (GameObject enemy in enemyHit)
         {
             Debug.Log("Damage Enemy Method Started");
-            enemy.GetComponent<EnemyStats>().TakeDamage(35f); //placeholder damage, will make damage base on the current attack anim
+            enemy.GetComponent<HealthSystem>().Damage(35f); //placeholder damage, will make damage base on the current attack anim
         }
     }
 

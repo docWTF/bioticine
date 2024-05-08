@@ -38,11 +38,11 @@ public class HealthSystem : MonoBehaviour
         _hp = _maxHp;
     }
 
-    public void Damage(int amount) => Hp -= amount;
-    public void Heal(int amount) => Hp += amount;
-    public void HealMax(int amount) => Hp = _maxHp;
+    public void Damage(float amount) => Hp -= amount;
+    public void Heal(float amount) => Hp += amount;
+    public void HealMax(float amount) => Hp = _maxHp;
     public void Kill() => Hp = 0;
-    public void Adjust(int value) => Hp = value;
+    public void Adjust(float value) => Hp = value;
 
 }
 
