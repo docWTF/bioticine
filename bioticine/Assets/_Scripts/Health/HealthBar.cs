@@ -1,63 +1,57 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class HealthBar : MonoBehaviour
 {
-    [field: SerializeField] public int MaxValue { get; private set; }
-    [field: SerializeField] public int Value { get; private set; }
+    [SerializeField] private HealthSystem healthSystem; // Reference to the HealthSystem
 
     [SerializeField] private RectTransform _upperBar;
     [SerializeField] private RectTransform _lowerBar;
     [SerializeField] private float _speed = 10f;
 
     private float _full;
-    private float TargerWidth => Value * _full / MaxValue;
+
+    private float TargetWidth => healthSystem.Hp * _full / healthSystem.MaxHp;
 
     private Coroutine adjustBarWidth;
 
     private void Start()
     {
         _full = _upperBar.rect.width;
-    }
 
-    private void Update()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            Change(20);
-        }
-
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            Change(-20);
-        }
+        // Subscribe to events in HealthSystem
+        healthSystem.Damaged.AddListener(UpdateHealthBar);
+        healthSystem.Healed.AddListener(UpdateHealthBar);
+        healthSystem.Died.AddListener(UpdateHealthBar);
     }
 
     private IEnumerator AdjustBarWidth(int amount)
     {
         var suddenChangeBar = amount >= 0 ? _lowerBar : _upperBar;
         var slowChangeBar = amount >= 0 ? _upperBar : _lowerBar;
-        suddenChangeBar.SetWidth(TargerWidth);
+        suddenChangeBar.SetWidth(TargetWidth);
         while (Mathf.Abs(suddenChangeBar.rect.width - slowChangeBar.rect.width) > 1f)
         {
-            var currentWidth = Mathf.Lerp(slowChangeBar.sizeDelta.x, TargerWidth, Time.deltaTime * _speed);
+            var currentWidth = Mathf.Lerp(slowChangeBar.sizeDelta.x, TargetWidth, Time.deltaTime * _speed);
             slowChangeBar.sizeDelta = new Vector2(currentWidth, slowChangeBar.sizeDelta.y);
             yield return null;
         }
-        slowChangeBar.SetWidth(TargerWidth);
+        slowChangeBar.SetWidth(TargetWidth);
     }
 
-    public void Change(int amount)
+    // Update health bar visuals when health changes
+    private void UpdateHealthBar(float currentHealth)
     {
-        Value = Mathf.Clamp(Value + amount, 0, MaxValue);
+        int currentHealthInt = Mathf.RoundToInt(currentHealth); // Convert float to int
         if (adjustBarWidth != null)
         {
             StopCoroutine(adjustBarWidth);
         }
-        adjustBarWidth = StartCoroutine(AdjustBarWidth(amount));
+        adjustBarWidth = StartCoroutine(AdjustBarWidth(currentHealthInt - Mathf.RoundToInt(healthSystem.Hp)));
     }
+
 }
+
 public static class RectTransformExtension
 {
     public static void SetWidth(this RectTransform t, float width)
