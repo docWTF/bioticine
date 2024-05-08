@@ -425,7 +425,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7960650401389720803}
   - component: {fileID: 6174248969683428811}
-  - component: {fileID: 6740089247188465373}
   - component: {fileID: 454381207141243785}
   - component: {fileID: 2873274294592957785}
   m_Layer: 9
@@ -475,29 +474,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &6740089247188465373
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6541116677546009940}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.31
-  m_Height: 0.75
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.4, z: -0.01}
 --- !u!195 &454381207141243785
 NavMeshAgent:
   m_ObjectHideFlags: 0

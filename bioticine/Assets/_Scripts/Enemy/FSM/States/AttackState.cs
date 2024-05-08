@@ -9,13 +9,13 @@ namespace LlamAcademy.FSM
             bool needsExitTime,
             Enemy Enemy,
             Action<State<EnemyState, StateEvent>> onEnter,
-            float ExitTime = 0.33f) : base(needsExitTime, Enemy, ExitTime, onEnter) {}
+            float ExitTime = 1f) : base(needsExitTime, Enemy, ExitTime, onEnter) {}
 
         public override void OnEnter()
         {
             Agent.isStopped = true;
             base.OnEnter();
-            Animator.Play("Attack");
+            Animator.Play("Atk");
         }
     }
 }

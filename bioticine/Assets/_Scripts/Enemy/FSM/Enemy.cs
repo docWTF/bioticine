@@ -11,6 +11,13 @@ namespace LlamAcademy.FSM
     [RequireComponent(typeof(Animator), typeof(NavMeshAgent))]
     public class Enemy : MonoBehaviour
     {
+        [SerializeField]
+        private Canvas canvas;
+        [SerializeField]
+        private Transform canvasPosition;
+        [SerializeField]
+        private Vector3 canvasOffset = new Vector3(0, 1, 0);
+
         [Header("References")]
         [SerializeField]
         private PlayerController Player;
@@ -154,8 +161,8 @@ namespace LlamAcademy.FSM
         //&& IsInMeleeRange;
 
         //private bool ShouldSpit(Transition<EnemyState> Transition) =>
-            //LastAttackTime + AttackCooldown <= Time.time
-                   //&& !IsInMeleeRange;
+        //LastAttackTime + AttackCooldown <= Time.time
+        //&& !IsInMeleeRange;
         //&& IsInSpitRange;
 
         private bool ShouldMelee(Transition<EnemyState> Transition) =>
@@ -178,15 +185,14 @@ namespace LlamAcademy.FSM
 
         private void OnAttack(State<EnemyState, StateEvent> State)
         {
-            transform.LookAt(Player.transform.position);
             LastAttackTime = Time.time;
         }
 
         //private void OnBounce(State<EnemyState, StateEvent> State)
         //{
-            //transform.LookAt(Player.transform.position);
-            //LastAttackTime = Time.time;
-            //LastBounceTime = Time.time;
+        //transform.LookAt(Player.transform.position);
+        //LastAttackTime = Time.time;
+        //LastBounceTime = Time.time;
         //}
 
         //private void OnRoll(State<EnemyState, StateEvent> State)
@@ -199,6 +205,32 @@ namespace LlamAcademy.FSM
         private void Update()
         {
             EnemyFSM.OnLogic();
+            Agent.updateRotation = false;
+            canvas.transform.rotation = Quaternion.identity;
+
+            // Update canvas position
+            if (canvas != null && canvasPosition != null)
+            {
+                canvas.transform.position = canvasPosition.position + canvasOffset; // Apply offset
+            }
+
+            // Rotate Enemy based on player's position
+            if (Player != null)
+            {
+                // Calculate direction to player
+                Vector3 directionToPlayer = Player.transform.position - transform.position;
+
+                // Flip the character if the player is on the left
+                if (directionToPlayer.x < 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                // Otherwise, the player is on the right
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+            }
         }
     }
 }

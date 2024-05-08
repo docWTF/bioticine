@@ -16,7 +16,7 @@ namespace LlamAcademy.FSM
             base.OnEnter();
             Agent.enabled = true;
             Agent.isStopped = false;
-            Animator.Play("Walk");
+            Animator.Play("WalkAnim");
         }
 
         public override void OnLogic()

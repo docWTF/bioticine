@@ -1,48 +1,92 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private float _maxHp = 100;
-    private float _hp;
+    public HealthBar healthBar;
+    private float lastHp;
 
-    public float MaxHp => _maxHp;
+    [SerializeField] private float maxHp = 100;
+    private float hp;
+    public float MaxHp => maxHp;
     public float Hp
     {
-        get => _hp;
-        private set
+        get => hp;
+        set
         {
-            var isDamage = value < _hp;
-            _hp = Mathf.Clamp(value, min: 0, _maxHp);
+            var oldValue = hp;
+            var isDamage = value < hp;
+            hp = Mathf.Clamp(value, 0, maxHp);
             if (isDamage)
             {
-                Damaged?.Invoke(_hp);
+                OnDamaged(hp);
             }
             else
             {
-                Healed?.Invoke(_hp);
+                OnHealed(hp);
             }
-
-            if (_hp <= 0)
+            if (hp <= 0)
             {
-                Died?.Invoke(_hp);
+                OnDied(hp);
+            }
+            if (hp != oldValue)
+            { // Only update if there's a change
+                healthBar.UpdateHealthBar(hp - oldValue); // Send difference
             }
         }
     }
 
-    public UnityEvent<float> Damaged;
-    public UnityEvent<float> Healed;
-    public UnityEvent<float> Died;
     private void Awake()
     {
-        _hp = _maxHp;
+        healthBar = GetComponentInChildren<HealthBar>();
+        hp = maxHp;
+        lastHp = hp;
     }
 
-    public void Damage(float amount) => Hp -= amount;
-    public void Heal(float amount) => Hp += amount;
-    public void HealMax(float amount) => Hp = _maxHp;
-    public void Kill() => Hp = 0;
-    public void Adjust(float value) => Hp = value;
+    public void Damage(float amount)
+    {
+        Hp -= amount;
+        healthBar.UpdateHealthBar(amount);
+    }
 
+    public void Heal(float amount)
+    {
+        Hp += amount;
+        healthBar.UpdateHealthBar(amount);
+    }
+
+    public void HealMax()
+    {
+        Hp = maxHp;
+        healthBar.UpdateHealthBar(maxHp);
+    }
+
+    public void Kill()
+    {
+        Hp = 0;
+    }
+
+    public void Adjust(float value)
+    {
+        Hp = value;
+        healthBar.UpdateHealthBar(value);
+    }
+
+    public void OnDamaged(float newHealth)
+    {
+        // Add your code here to handle what happens when damaged
+        Debug.Log("Damaged: " + newHealth);
+    }
+
+    public void OnHealed(float newHealth)
+    {
+        // Add your code here to handle what happens when healed
+        Debug.Log("Healed: " + newHealth);
+    }
+
+    public void OnDied(float newHealth)
+    {
+        // Add your code here to handle what happens when died
+        Debug.Log("Died: " + newHealth);
+        Destroy(gameObject); // Example: Set the GameObject inactive
+    }
 }
-
