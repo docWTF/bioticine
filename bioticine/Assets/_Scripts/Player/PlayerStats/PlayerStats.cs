@@ -8,7 +8,8 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth = 1000;
     public float stamina = 500;
     public float maxStamina = 500;
-    public float soulsCount = 0f;
+    public int soulsCount = 0;
+    public float weaponDamageMultiplier;
     public GameObject player;
     public PlayerMovement playerMovement;
 
@@ -78,7 +79,6 @@ public class PlayerStats : MonoBehaviour
             health = maxHealth;
         }
 
-        //implement gradual health regen?
         
         Debug.Log("Health restored to: " + health);
     }
@@ -94,12 +94,12 @@ public class PlayerStats : MonoBehaviour
         Destroy(this);
     }
 
-    public void AddSouls(float amount)
+    public void AddSouls(int amount)
     {
         soulsCount += amount;
     }
 
-    public void SpendSouls(float amount)
+    public void SpendSouls(int amount)
     {
         soulsCount -= amount;
     }

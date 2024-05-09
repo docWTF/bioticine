@@ -7,6 +7,7 @@ public class PlayerStatsDisplay : MonoBehaviour
 {
     public TextMeshProUGUI hitpointDisplay;
     public TextMeshProUGUI staminaDisplay;
+    public TextMeshProUGUI soulsDisplay;
     
 
 
@@ -17,6 +18,7 @@ public class PlayerStatsDisplay : MonoBehaviour
         {
             hitpointDisplay.text = Mathf.RoundToInt(PlayerStats.Instance.health).ToString() + "/" + Mathf.RoundToInt(PlayerStats.Instance.maxHealth).ToString();
             staminaDisplay.text = Mathf.RoundToInt(PlayerStats.Instance.stamina).ToString() + "/" + Mathf.RoundToInt(PlayerStats.Instance.maxStamina).ToString();
+            soulsDisplay.text = PlayerStats.Instance.soulsCount.ToString();
         }
     }
 }

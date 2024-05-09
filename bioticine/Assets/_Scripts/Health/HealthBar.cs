@@ -5,7 +5,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] public HealthSystem healthSystem; // Reference to the HealthSystem
+    public EnemyStats enemyStats; // Reference to the HealthSystem
 
     [SerializeField] private RectTransform _upperBar;
     [SerializeField] private RectTransform _lowerBar;
@@ -15,12 +15,17 @@ public class HealthBar : MonoBehaviour
    
     private Coroutine adjustBarWidth;
 
+    private void Awake()
+    {
+        enemyStats = GetComponentInParent<EnemyStats>();
+    }
+
     private void Start()
     {
         _full = _upperBar.rect.width;
 
         // Update health bar initially
-        UpdateHealthBar(healthSystem.Hp);
+        UpdateHealthBar(enemyStats.Hp);
     }
 
     private IEnumerator AdjustBarWidth(float amount)
@@ -54,7 +59,7 @@ public class HealthBar : MonoBehaviour
 
     private float TargetWidth()
     {
-        return healthSystem.Hp * _full / healthSystem.MaxHp;
+        return enemyStats.Hp * _full / enemyStats.MaxHp;
     }
 }
 

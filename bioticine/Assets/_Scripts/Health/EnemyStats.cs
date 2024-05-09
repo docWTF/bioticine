@@ -1,13 +1,17 @@
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+public class EnemyStats : MonoBehaviour
 {
     public HealthBar healthBar;
+
     private float lastHp;
 
     [SerializeField] private float maxHp = 100;
     private float hp;
     public float MaxHp => maxHp;
+
+    [SerializeField] private int soulsAmount;
+
     public float Hp
     {
         get => hp;
@@ -85,7 +89,8 @@ public class HealthSystem : MonoBehaviour
 
     public void OnDied(float newHealth)
     {
-        // Add your code here to handle what happens when died
+        
+        PlayerStats.Instance.AddSouls(soulsAmount);
         Debug.Log("Died: " + newHealth);
         Destroy(gameObject); // Example: Set the GameObject inactive
     }

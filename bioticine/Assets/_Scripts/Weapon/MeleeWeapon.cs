@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public class MeleeWeapon : MonoBehaviour
 {
-    public List<GameObject> enemyHit = new List<GameObject>(); 
+    public List<GameObject> enemyHit = new List<GameObject>();
+    public float weaponDamage;
 
     public void SetAttackActive(int currentCombo)
     {
@@ -26,13 +27,13 @@ public class MeleeWeapon : MonoBehaviour
         }
     }
 
-    public void DamageEnemy()
+    public void DamageEnemy(float attackComboMultiplier)
     {
 
         foreach (GameObject enemy in enemyHit)
         {
             Debug.Log("Damage Enemy Method Started");
-            enemy.GetComponent<HealthSystem>().Damage(35f); //placeholder damage, will make damage base on the current attack anim
+            enemy.GetComponent<EnemyStats>().Damage((weaponDamage + (weaponDamage * PlayerStats.Instance.weaponDamageMultiplier)) * attackComboMultiplier); //placeholder damage, will make damage base on the current attack anim
         }
     }
 

@@ -8,6 +8,7 @@ public class PlayerActions : MonoBehaviour
     public GameObject weaponMelee;
     public bool isAttacking;
     public int attackCombo;
+    public float attackComboMultiplier;
     public float attackStaminaUsage;
 
     private float resetComboTimer;
@@ -66,8 +67,21 @@ public class PlayerActions : MonoBehaviour
         animator.SetBool("isAttacking", true);
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackActive(attackCombo);
 
+        if (attackCombo == 0 || attackCombo == 1)
+        {
+            attackComboMultiplier = 1;
+        }
+        else if (attackCombo == 2)
+        {
+            attackComboMultiplier = 0.90f;
+        }
+        else if (attackCombo == 3)
+        {
+            attackComboMultiplier = 1.2f;
+        }
+
         yield return new WaitForSeconds(0.1f);
-        weaponMelee.GetComponent<MeleeWeapon>().DamageEnemy();
+        weaponMelee.GetComponent<MeleeWeapon>().DamageEnemy(attackComboMultiplier);
         yield return new WaitForSeconds(0.3f);
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackInactive(attackCombo);
         weaponMelee.GetComponent<MeleeWeapon>().ClearEnemyList();
