@@ -8,8 +8,13 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth = 1000;
     public float stamina = 500;
     public float maxStamina = 500;
+    public float soulsCount = 0f;
     public GameObject player;
     public PlayerMovement playerMovement;
+
+    public float staminaRegenRate = 30f;  
+    public float staminaRegenDelay = 2f; 
+    private float staminaRegenTimer = 0;
 
     private void Awake()
     {
@@ -25,6 +30,18 @@ public class PlayerStats : MonoBehaviour
 
         playerMovement = GetComponent<PlayerMovement>();
 
+    }
+
+    private void Update()
+    {
+        if (stamina < maxStamina && staminaRegenTimer <= 0)
+        {
+            RestoreStamina(staminaRegenRate * Time.deltaTime);
+        }
+        else if (staminaRegenTimer > 0)
+        {
+            staminaRegenTimer -= Time.deltaTime;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -48,6 +65,8 @@ public class PlayerStats : MonoBehaviour
         {
             stamina = 0;
         }
+        staminaRegenTimer = staminaRegenDelay; 
+
         Debug.Log("Stamina: " + stamina);
     }
 
@@ -66,11 +85,22 @@ public class PlayerStats : MonoBehaviour
 
     public void RestoreStamina(float amount)
     {
-        //implement stamina regen
-    }
+            stamina += amount;
+            if (stamina > maxStamina) stamina = maxStamina;
+        }
 
     public void PlayerDeath()
     {
         Destroy(this);
+    }
+
+    public void AddSouls(float amount)
+    {
+        soulsCount += amount;
+    }
+
+    public void SpendSouls(float amount)
+    {
+        soulsCount -= amount;
     }
 }

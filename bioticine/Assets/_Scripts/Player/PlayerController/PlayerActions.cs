@@ -8,6 +8,7 @@ public class PlayerActions : MonoBehaviour
     public GameObject weaponMelee;
     public bool isAttacking;
     public int attackCombo;
+    public float attackStaminaUsage;
 
     private float resetComboTimer;
     private float resetComboDelay = 1.2f;
@@ -55,6 +56,12 @@ public class PlayerActions : MonoBehaviour
 
     private IEnumerator AttempToAttack()
     {
+        if (PlayerStats.Instance.stamina <= 0)
+        {
+            yield break;
+        }
+
+        PlayerStats.Instance.UseStamina(attackStaminaUsage);
         isAttacking = true;
         animator.SetBool("isAttacking", true);
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackActive(attackCombo);

@@ -20,7 +20,10 @@ public class PlayerMovement : MonoBehaviour
     public MeleeWeapon meleeWeapon;
     public PlayerActions playerActions;
 
+    public float dashStaminaUsage;
+
     private Vector3 dashDirection;
+    
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -91,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator AttemptToDash()
     {
+        if (PlayerStats.Instance.stamina <= 0)
+        {
+            yield break;
+        }
+        PlayerStats.Instance.UseStamina(dashStaminaUsage);
         isDashing = true;
         animator.SetBool("isDashing", true);
         float originalSpeed = speed; 

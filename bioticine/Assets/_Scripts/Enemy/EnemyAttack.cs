@@ -44,6 +44,14 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
+    public void RegisterTarget(GameObject target)
+    {
+        if (!targetHit.Contains(target))
+        {
+            targetHit.Add(target);
+        }
+    }
+
     public void ClearTargetFromList()
     {
         targetHit.Clear();
