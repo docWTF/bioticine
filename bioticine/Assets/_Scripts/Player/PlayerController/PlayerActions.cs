@@ -12,10 +12,13 @@ public class PlayerActions : MonoBehaviour
     private float resetComboTimer;
     private float resetComboDelay = 1.2f;
 
+    public Animator animator;
+
 
     private void Awake()
     {
         EquipWeapon();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -53,7 +56,9 @@ public class PlayerActions : MonoBehaviour
     private IEnumerator AttempToAttack()
     {
         isAttacking = true;
+        animator.SetBool("isAttacking", true);
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackActive(attackCombo);
+
         yield return new WaitForSeconds(0.1f);
         weaponMelee.GetComponent<MeleeWeapon>().DamageEnemy();
         yield return new WaitForSeconds(0.3f);
@@ -61,6 +66,7 @@ public class PlayerActions : MonoBehaviour
         weaponMelee.GetComponent<MeleeWeapon>().ClearEnemyList();
         attackCombo += 1;
         isAttacking = false;
+        animator.SetBool("isAttacking", false);
 
         if (attackCombo > 3)
         {

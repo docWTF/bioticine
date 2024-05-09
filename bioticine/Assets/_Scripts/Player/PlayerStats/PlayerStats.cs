@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     public float stamina = 500;
     public float maxStamina = 500;
     public GameObject player;
+    public PlayerMovement playerMovement;
 
     private void Awake()
     {
@@ -22,17 +23,22 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);  
         }
 
+        playerMovement = GetComponent<PlayerMovement>();
 
     }
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if (health < 0)
+        if (!playerMovement.isDashing)
         {
-            health = 0;
+            health -= damage;
+            if (health < 0)
+            {
+                health = 0;
+            }
+            Debug.Log("Health: " + health);
         }
-        Debug.Log("Health: " + health);
+
     }
 
     public void UseStamina(float amount)
@@ -61,5 +67,10 @@ public class PlayerStats : MonoBehaviour
     public void RestoreStamina(float amount)
     {
         //implement stamina regen
+    }
+
+    public void PlayerDeath()
+    {
+        Destroy(this);
     }
 }

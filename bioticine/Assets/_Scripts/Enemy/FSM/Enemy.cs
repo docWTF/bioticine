@@ -5,12 +5,16 @@ using UnityEngine.AI;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace LlamAcademy.FSM
 {
     [RequireComponent(typeof(Animator), typeof(NavMeshAgent))]
     public class Enemy : MonoBehaviour
     {
+        [SerializeField]
+        private EnemyAttack enemyAttack;
+
         [SerializeField]
         private Canvas canvas;
         [SerializeField]
@@ -119,6 +123,8 @@ namespace LlamAcademy.FSM
             EnemyFSM.AddTransition(new Transition<EnemyState>(EnemyState.Attack, EnemyState.Idle, IsWithinIdleRange));
 
             EnemyFSM.Init();
+
+            enemyAttack = GetComponentInChildren<EnemyAttack>();
         }
 
         private void Start()
@@ -186,6 +192,18 @@ namespace LlamAcademy.FSM
         private void OnAttack(State<EnemyState, StateEvent> State)
         {
             LastAttackTime = Time.time;
+            //PLACEHOLDER ADDITION
+            StartCoroutine(Attack());
+        }
+
+        private IEnumerator Attack()
+        {
+            enemyAttack.SetAttackActive();
+            yield return new WaitForSeconds(0.3f);
+            enemyAttack.DamageTarget();
+            yield return new WaitForSeconds(0.2f);
+            enemyAttack.SetAttackInactive();
+            enemyAttack.ClearTargetFromList();
         }
 
         //private void OnBounce(State<EnemyState, StateEvent> State)
@@ -232,5 +250,7 @@ namespace LlamAcademy.FSM
                 }
             }
         }
+
+
     }
 }
