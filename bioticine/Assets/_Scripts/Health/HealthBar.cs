@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] private RectTransform _upperBar;
     [SerializeField] private RectTransform _lowerBar;
-    [SerializeField] private float _speed = 10f;
+    [SerializeField] private float _speed = 0.05f;
 
     private float _full;
    
@@ -28,6 +28,12 @@ public class HealthBar : MonoBehaviour
         UpdateHealthBar(enemyStats.Hp);
     }
 
+    // Update health bar visuals when health changes
+    public void UpdateHealthBar(float amount)
+    {
+
+        adjustBarWidth = StartCoroutine(AdjustBarWidth(amount));
+    }
     private IEnumerator AdjustBarWidth(float amount)
     {
         var suddenChangeBar = amount < 0 ? _upperBar : _lowerBar;
@@ -36,31 +42,25 @@ public class HealthBar : MonoBehaviour
 
         suddenChangeBar.SetWidth(targetWidth);
 
-        while (Mathf.Abs(slowChangeBar.sizeDelta.x - targetWidth) > 1f)
+        float currentWidth = slowChangeBar.sizeDelta.x;
+        float timeElapsed = 0;  // Track the time elapsed for the interpolation
+        float lerpDuration = 1.0f / _speed;  // Calculate the total duration of the lerp based on the speed
+
+        while (timeElapsed < lerpDuration)
         {
-            var currentWidth = Mathf.Lerp(slowChangeBar.sizeDelta.x, targetWidth, Time.deltaTime * _speed);
+            currentWidth = Mathf.Lerp(slowChangeBar.sizeDelta.x, targetWidth, timeElapsed / lerpDuration);
             slowChangeBar.SetWidth(currentWidth);
+            timeElapsed += Time.deltaTime;  // Increment the time elapsed by the time per frame
             yield return null;
         }
-        slowChangeBar.SetWidth(targetWidth);
+
+        slowChangeBar.SetWidth(targetWidth);  // Ensure it ends exactly at target width
     }
-
-
-    // Update health bar visuals when health changes
-    public void UpdateHealthBar(float amount)
-    {
-        if (adjustBarWidth != null)
-        {
-            StopCoroutine(adjustBarWidth);
-        }
-        adjustBarWidth = StartCoroutine(AdjustBarWidth(amount));
-    }
-
-
     private float TargetWidth()
     {
         return enemyStats.Hp * _full / enemyStats.MaxHp;
     }
+
 }
 
 public static class RectTransformExtension
