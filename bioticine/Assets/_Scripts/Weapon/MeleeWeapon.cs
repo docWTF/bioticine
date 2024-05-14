@@ -33,7 +33,7 @@ public class MeleeWeapon : MonoBehaviour
         foreach (GameObject enemy in enemyHit)
         {
             Debug.Log("Damage Enemy Method Started");
-            enemy.GetComponent<EnemyStats>().Damage((weaponDamage + (weaponDamage * PlayerStats.Instance.weaponDamageMultiplier)) * attackComboMultiplier); //placeholder damage, will make damage base on the current attack anim
+            enemy.GetComponent<EnemyStats>().Damage((weaponDamage * attackComboMultiplier) + (weaponDamage * PlayerStats.Instance.weaponDamageMultiplier)); //placeholder damage, will make damage base on the current attack anim
         }
     }
 

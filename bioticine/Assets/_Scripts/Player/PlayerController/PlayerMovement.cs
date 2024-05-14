@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed;
     public float iFrameSeconds;
     public float groundDist;
+    public float dashSpeedCoeffecient;
     public bool isDashing;
     public LayerMask groundLayer; //assign in inspector
     public SpriteRenderer spriteRenderer; //assign in inspector\
@@ -52,7 +53,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (playerActions.isAttacking || isDashing)
+        if (playerActions.isAttacking)
+        {
+            rigidBody.velocity = new Vector3(0, 0, 0);
+            return;
+        }
+
+        if (isDashing)
         {
             return;
         }
@@ -102,8 +109,8 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         animator.SetBool("isDashing", true);
         float originalSpeed = speed; 
-        speed = dashSpeed;
-        rigidBody.velocity = dashDirection * dashSpeed; 
+        speed = dashSpeed + (PlayerStats.Instance.levelStaminaCoeffecient * dashSpeedCoeffecient);
+        rigidBody.velocity = dashDirection * speed; 
 
         yield return new WaitForSeconds(iFrameSeconds);
 

@@ -305,7 +305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116740107}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21658354, y: 0.000000008398983, z: -0.0000000018633088, w: 0.9762641}
+  m_LocalRotation: {x: 0.21658354, y: -0.000000008398983, z: 0.0000000018633088, w: 0.9762641}
   m_LocalPosition: {x: -20.5, y: 8.940001, z: -8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1450,6 +1450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHit: []
+  weaponDamage: 35
 --- !u!1001 &699068943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1938,8 +1939,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 1.32, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6.064005, y: 1.32, z: 1}
+  m_Center: {x: -1.0320024, y: 0, z: 0}
 --- !u!1 &889630967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,8 +2124,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.47, y: 1.32, z: 3.25}
-  m_Center: {x: 0.5, y: 0, z: 0}
+  m_Size: {x: 3.830945, y: 1.32, z: 3.25}
+  m_Center: {x: -0.1804726, y: 0, z: 0}
 --- !u!1 &931819849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,8 +2309,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.47, y: 1.32, z: 3.25}
-  m_Center: {x: 0.5, y: 0, z: 0}
+  m_Size: {x: 3.8309455, y: 1.32, z: 3.25}
+  m_Center: {x: -0.18047261, y: 0, z: 0}
 --- !u!1 &961606555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,7 +3061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161328661}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1.7763568e-15, z: -1.110223e-15, w: 1}
+  m_LocalRotation: {x: -0, y: -1.7763568e-15, z: 8.881784e-16, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4133,8 +4134,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1.32, z: 2}
-  m_Center: {x: 0.5, y: 0, z: 0}
+  m_Size: {x: 2.6313457, y: 1.32, z: 2}
+  m_Center: {x: 0.18432713, y: 0, z: 0}
 --- !u!1 &1542756328
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,6 +5194,7 @@ GameObject:
   - component: {fileID: 2074036257}
   - component: {fileID: 2074036256}
   - component: {fileID: 2074036264}
+  - component: {fileID: 2074036265}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5288,8 +5290,12 @@ MonoBehaviour:
   weaponMelee: {fileID: 0}
   isAttacking: 0
   attackCombo: 0
+  attackComboMultiplier: 0
   attackStaminaUsage: 25
+  attackSpeed: 0.8
   animator: {fileID: 0}
+  playerMovement: {fileID: 0}
+  animationManager: {fileID: 0}
 --- !u!114 &2074036259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5306,6 +5312,7 @@ MonoBehaviour:
   dashSpeed: 10
   iFrameSeconds: 0.6
   groundDist: 1.94
+  dashSpeedCoeffecient: 0.2
   isDashing: 0
   groundLayer:
     serializedVersion: 2
@@ -5410,10 +5417,38 @@ MonoBehaviour:
   stamina: 300
   maxStamina: 300
   soulsCount: 0
+  weaponDamageMultiplier: 0.05
+  discoveryMultiplier: 1
+  speedMultiplier: 0.03
   player: {fileID: 2074036255}
   playerMovement: {fileID: 0}
   staminaRegenRate: 30
   staminaRegenDelay: 2
+  levelHealth: 5
+  levelStamina: 1
+  levelDamage: 5
+  levelDex: 6
+  levelDiscovery: 1
+  levelHealthCoeffecient: 0
+  levelStaminaCoeffecient: 0
+  levelDamageCoeffecient: 0
+  levelDexCoeffecient: 0
+  levelDiscoveryCoeffecient: 0
+  levelingCoeffecient: 3
+--- !u!114 &2074036265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074036255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3508da89ef2afe40b3ad7253a0d7f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStateName: 
+  animator: {fileID: 0}
 --- !u!1001 &2095678830
 PrefabInstance:
   m_ObjectHideFlags: 0

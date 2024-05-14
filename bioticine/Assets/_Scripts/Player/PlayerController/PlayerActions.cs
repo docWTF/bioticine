@@ -10,17 +10,23 @@ public class PlayerActions : MonoBehaviour
     public int attackCombo;
     public float attackComboMultiplier;
     public float attackStaminaUsage;
+    public float attackSpeed;
 
     private float resetComboTimer;
     private float resetComboDelay = 1.2f;
+    private string attackAnimation;
 
     public Animator animator;
+    public PlayerMovement playerMovement;
+    public AnimationManager animationManager;
 
 
     private void Awake()
     {
         EquipWeapon();
         animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
+        animationManager = GetComponent<AnimationManager>();
     }
 
     private void Update()
@@ -48,7 +54,7 @@ public class PlayerActions : MonoBehaviour
 
     public void Attack()
     {
-        if (weaponMelee != null && !isAttacking)
+        if (weaponMelee != null && !isAttacking && !playerMovement.isDashing)
         {
             StartCoroutine(AttempToAttack());
         }
@@ -62,32 +68,37 @@ public class PlayerActions : MonoBehaviour
             yield break;
         }
 
-        PlayerStats.Instance.UseStamina(attackStaminaUsage);
-        isAttacking = true;
-        animator.SetBool("isAttacking", true);
-        weaponMelee.GetComponent<MeleeWeapon>().SetAttackActive(attackCombo);
-
         if (attackCombo == 0 || attackCombo == 1)
         {
             attackComboMultiplier = 1;
+            Debug.Log("Combo Multiplier: " + attackComboMultiplier);
         }
         else if (attackCombo == 2)
         {
             attackComboMultiplier = 0.90f;
+            Debug.Log("Combo Multiplier: " + attackComboMultiplier);
         }
         else if (attackCombo == 3)
         {
             attackComboMultiplier = 1.2f;
+            Debug.Log("Combo Multiplier: " + attackComboMultiplier);
         }
 
+        PlayerStats.Instance.UseStamina(attackStaminaUsage);
+        isAttacking = true;
+        animator.SetBool("isAttacking", true);
+        animator.speed = animationManager.GetAnimationStateSpeed(animationManager.currentStateName) + (animationManager.GetAnimationStateSpeed(animationManager.currentStateName) * PlayerStats.Instance.speedMultiplier);
+        weaponMelee.GetComponent<MeleeWeapon>().SetAttackActive(attackCombo);
+        
         yield return new WaitForSeconds(0.1f);
         weaponMelee.GetComponent<MeleeWeapon>().DamageEnemy(attackComboMultiplier);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(attackSpeed - (attackSpeed * PlayerStats.Instance.speedMultiplier));
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackInactive(attackCombo);
         weaponMelee.GetComponent<MeleeWeapon>().ClearEnemyList();
         attackCombo += 1;
         isAttacking = false;
         animator.SetBool("isAttacking", false);
+        animator.speed = 1;
 
         if (attackCombo > 3)
         {
