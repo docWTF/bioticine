@@ -305,7 +305,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116740107}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21658354, y: -0.000000008398983, z: 0.0000000018633088, w: 0.9762641}
+  m_LocalRotation: {x: 0.21658354, y: -0.0000000083989855, z: 0.0000000018633088,
+    w: 0.9762641}
   m_LocalPosition: {x: -20.5, y: 8.940001, z: -8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1451,6 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHit: []
   weaponDamage: 35
+  weaponSpeed: 0
 --- !u!1001 &699068943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3061,7 +3063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161328661}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1.7763568e-15, z: 8.881784e-16, w: 1}
+  m_LocalRotation: {x: -0, y: 1.7763568e-15, z: -9.992007e-16, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5292,7 +5294,7 @@ MonoBehaviour:
   attackCombo: 0
   attackComboMultiplier: 0
   attackStaminaUsage: 25
-  attackSpeed: 0.8
+  attackSpeed: 0.875
   animator: {fileID: 0}
   playerMovement: {fileID: 0}
   animationManager: {fileID: 0}
@@ -5419,7 +5421,7 @@ MonoBehaviour:
   soulsCount: 0
   weaponDamageMultiplier: 0.05
   discoveryMultiplier: 1
-  speedMultiplier: 0.03
+  speedMultiplier: 0.01
   player: {fileID: 2074036255}
   playerMovement: {fileID: 0}
   staminaRegenRate: 30

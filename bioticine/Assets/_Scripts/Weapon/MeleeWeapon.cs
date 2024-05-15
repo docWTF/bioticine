@@ -8,6 +8,7 @@ public class MeleeWeapon : MonoBehaviour
 {
     public List<GameObject> enemyHit = new List<GameObject>();
     public float weaponDamage;
+    public float weaponSpeed;
 
     public void SetAttackActive(int currentCombo)
     {
