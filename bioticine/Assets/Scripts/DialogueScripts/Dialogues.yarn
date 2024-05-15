@@ -3,6 +3,7 @@ tags:
 ---
 <<PlaySound "Announcement">>
 <<wait 1>>
+<<FadeInCG "Reception">>
 <<ShowDoctor>>
 Doctor: Every medical staff available, please come to the lab.
 Doctor: I'm about to show you something amazing.
@@ -10,10 +11,12 @@ Doctor: I'm about to show you something amazing.
 Nurse 1: What could he possibly be talking about?
 Nurse 2: Beats me. But since it's from the Doctor, it must be very important.
 <<FadeOutAll>>
+<<FadeOutCG "Reception">>
 <<wait 2>>
 <<ShowDoctor>>
 Doctor: I'm so glad everyone got to show up at the BioLab!
 Doctor: This is going to change everyone's perspective and methods in science and medical health forever!
+<<FadeInCG "BibiBirth">>
 Doctor: Voila!
 Doctor: My latest creation, Bioticine!
 Doctor: Let's call her Bibi for short.
@@ -53,6 +56,7 @@ Doctor: Trust me, I will.
 Doctor: Now, Bibi.
 Doctor: You are now the daughter of great medical science.
 Doctor: You are destined for greatness, I believe in you.
+<<FadeOutCG "BibiBirth">>
 <<FadeOutAll>>
 <<jump BibiStart>>
 
