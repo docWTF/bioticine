@@ -6,8 +6,8 @@ public class EnemyStats : MonoBehaviour
 
     private float lastHp;
 
-    [SerializeField] private float maxHp = 100;
-    private float hp;
+    [SerializeField] public float maxHp = 100;
+    public float hp;
     public float MaxHp => maxHp;
 
     [SerializeField] private int soulsAmount;
