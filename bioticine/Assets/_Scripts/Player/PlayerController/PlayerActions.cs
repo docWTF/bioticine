@@ -94,7 +94,9 @@ public class PlayerActions : MonoBehaviour
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackActive(attackCombo);
         
         yield return new WaitForSeconds(0.1f);
+
         yield return new WaitForSeconds((attackSpeed - (attackSpeed * PlayerStats.Instance.speedMultiplier)) / 2);
+
         weaponMelee.GetComponent<MeleeWeapon>().DamageEnemy(attackComboMultiplier);
         yield return new WaitForSeconds((attackSpeed - (attackSpeed * PlayerStats.Instance.speedMultiplier)) / 2);
         weaponMelee.GetComponent<MeleeWeapon>().SetAttackInactive(attackCombo);
