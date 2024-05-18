@@ -75,7 +75,6 @@ namespace LlamAcademy.FSM
             Agent = GetComponent<NavMeshAgent>();
             Animator = GetComponent<Animator>();
             EnemyFSM = new();
-            Player = PlayerStats.Instance;
 
             // Add States
             EnemyFSM.AddState(EnemyState.Idle, new IdleState(false, this));
@@ -137,6 +136,8 @@ namespace LlamAcademy.FSM
             MeleePlayerSensor.OnPlayerEnter += MeleePlayerSensor_OnPlayerEnter;
             MeleePlayerSensor.OnPlayerExit += MeleePlayerSensor_OnPlayerExit;
             //RollImpactSensor.OnCollision += RollImpactSensor_OnCollision;
+
+            Player = PlayerStats.Instance;
         }
 
         //private void RollImpactSensor_OnCollision(Collision Collision)

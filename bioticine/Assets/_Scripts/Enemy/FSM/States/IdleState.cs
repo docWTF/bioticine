@@ -12,7 +12,7 @@ namespace LlamAcademy.FSM
         {
             base.OnEnter();
             Agent.isStopped = true;
-            Animator.Play("Idle_A");
+            Animator.Play("Idle");
         }
 
         public override void OnLogic()
@@ -24,7 +24,7 @@ namespace LlamAcademy.FSM
                 float value = Random.value;
                 if (value < 0.95f)
                 {
-                    if (!state.IsName("Idle_A"))
+                    if (!state.IsName("Idle"))
                     {
                         AnimationLoopCount = 0;
                     }
@@ -32,7 +32,7 @@ namespace LlamAcademy.FSM
                     {
                         AnimationLoopCount++;
                     }
-                    Animator.Play("Idle_A");
+                    Animator.Play("Idle");
                 }
                 else if (value < 0.975f)
                 {

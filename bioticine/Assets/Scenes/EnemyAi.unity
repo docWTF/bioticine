@@ -527,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116740107}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21658354, y: -0.000000008398987, z: 0.0000000018633097, w: 0.9762641}
+  m_LocalRotation: {x: 0.21658354, y: 0.000000008398987, z: -0.0000000018633097, w: 0.9762641}
   m_LocalPosition: {x: -20.5, y: 8.940001, z: -8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1229,7 +1229,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 2074036260}
+      objectReference: {fileID: 2074036264}
     - target: {fileID: 5989462035531621624, guid: 654842086a6a7354f8ef41ec487841be,
         type: 3}
       propertyPath: m_Name
@@ -1304,7 +1304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161328661}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1.7763568e-15, z: 1.2212453e-15, w: 1}
+  m_LocalRotation: {x: -0, y: 1.7763568e-15, z: -1.2212453e-15, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1528,6 +1528,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 116740109}
+    - target: {fileID: 3322821241618367530, guid: 654842086a6a7354f8ef41ec487841be,
+        type: 3}
+      propertyPath: _speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1582,7 +1587,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 2074036260}
+      objectReference: {fileID: 2074036264}
     - target: {fileID: 5989462035531621624, guid: 654842086a6a7354f8ef41ec487841be,
         type: 3}
       propertyPath: m_Name
@@ -1660,7 +1665,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 2074036260}
+      objectReference: {fileID: 2074036264}
     - target: {fileID: 5989462035531621624, guid: 654842086a6a7354f8ef41ec487841be,
         type: 3}
       propertyPath: m_Name
@@ -1943,84 +1948,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStateName: 
   animator: {fileID: 0}
---- !u!1001 &4623738029232526966
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1678239201452305630, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 116740109}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.6768274
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.209
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.233018
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5276359546356250490, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5596504162169946824, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 2074036260}
-    - target: {fileID: 5989462035531621624, guid: 654842086a6a7354f8ef41ec487841be,
-        type: 3}
-      propertyPath: m_Name
-      value: Llama State Machine
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 654842086a6a7354f8ef41ec487841be, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2030,7 +1957,6 @@ SceneRoots:
   - {fileID: 566786429}
   - {fileID: 1233652664}
   - {fileID: 565326485}
-  - {fileID: 4623738029232526966}
   - {fileID: 2069999041}
   - {fileID: 1027094070}
   - {fileID: 1824482144}

@@ -267,7 +267,7 @@ MonoBehaviour:
   enemyStats: {fileID: 6308881196981138882}
   _upperBar: {fileID: 4380902884849464603}
   _lowerBar: {fileID: 8821720779970507672}
-  _speed: 0.05
+  _speed: 1
 --- !u!1 &1610840595950272773
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 5533286865569690642}
   - component: {fileID: 5596504162169946824}
   - component: {fileID: 6308881196981138882}
-  - component: {fileID: 5707719272740887452}
   - component: {fileID: 3159321577431766816}
   - component: {fileID: 214599885290209613}
   m_Layer: 9
@@ -449,7 +448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5989462035531621624}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.6768274, y: -1.209, z: 8.233018}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
@@ -516,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee231717d4f12546bda6f295f2905e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttack: {fileID: 0}
+  enemyAttack: {fileID: 6056252833709640026}
   canvas: {fileID: 1678239201452305630}
   canvasPosition: {fileID: 5276359546356250490}
   canvasOffset: {x: 0, y: 4, z: 0}
@@ -541,24 +540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3322821241618367530}
   maxHp: 100
-  hp: 0
-  soulsAmount: 0
---- !u!114 &5707719272740887452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5989462035531621624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2faa0b8b3e1dd14b9eb3607ba7bd96c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 3322821241618367530}
-  maxHp: 100
-  hp: 0
-  soulsAmount: 1000
+  hp: 100
+  soulsAmount: 100
 --- !u!212 &3159321577431766816
 SpriteRenderer:
   m_ObjectHideFlags: 0
