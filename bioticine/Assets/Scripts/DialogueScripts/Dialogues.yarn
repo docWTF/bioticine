@@ -65,6 +65,7 @@ title: BibiStart
 ---
 <<wait 2>>
 <<ShowBibi>>
+<<FadeInCG "BibiReport">>
 Bibi: Doctor, are you occupied?
 Bibi: I have come with information regarding Ms. Ayanna.
 <<ShowDoctor>>
@@ -107,8 +108,10 @@ Bibi: I'll make sure to try my best.
 Bibi: Please send me in whenever you're ready.
 <<ShowDoctor>>
 Doctor: Alright. Please go on standby.
+<<FadeOutCG "BibiReport">>
 <<FadeOutAll>>
 <<wait 3>>
+<<FadeInCG "Ayanna">>
 <<PlayMusic "Heartbeat">><<ShowDoctor>>
 Doctor: Ms. Ayanna, how are you feeling?
 <<ShowAyanna>>
@@ -123,6 +126,7 @@ Patient: It's mostly the feeling of nausea and pain, though.
 Doctor: Well, this should be a smooth process.
 Doctor: I'm going to treat you using a new method.
 Doctor: I will now give you a Bioticine.
+<<FadeOutCG "Ayanna">>
 <<ShowAyanna>>
 Patient: What's a Bioticine?
 <<ShowDoctor>>
