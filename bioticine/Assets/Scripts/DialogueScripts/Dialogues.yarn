@@ -127,6 +127,7 @@ Doctor: Well, this should be a smooth process.
 Doctor: I'm going to treat you using a new method.
 Doctor: I will now give you a Bioticine.
 <<FadeOutCG "Ayanna">>
+<<FadeInCG "Bioticine">>
 <<ShowAyanna>>
 Patient: What's a Bioticine?
 <<ShowDoctor>>
@@ -159,7 +160,10 @@ Patient: I have the right to know as a patient!
 Doctor: DON'T. Question science.
 <<ShowAyanna>>
 Patient: Okay... I'll drink it now.
+<<FadeOutCG "Bioticine">>
 Patient: *gulp*
+<<wait 2>>
+<<FadeInCG "Ayanna">>
 <<ShowDoctor>>
 Doctor: Okay, good. Rest well now.
 <<ShowAyanna>>
@@ -168,15 +172,15 @@ Patient: I'm scared...
 Doctor: It's just a few cancer cells, you'll be fine~!
 <<ShowAyanna>>
 Patient: That only make things worse!
-<<ShowDoctor>>
-Doctor: Skill issue.
+<<FadeOutCG "Ayanna">>
 <<FadeOutAll>>
 <<StopSound>>
-<<wait 5>>
+<<jump BibiStomachStart>>
 ===
 
 title: BibiStomachStart
 ---
+<<wait 3>>
 <<ShowBibi>>
 Bibi: Doctor, can you hear me?
 <<ShowDoctor>>
@@ -211,6 +215,7 @@ Doctor: You understand the consequences, right?
 Bibi: Sigh... yes.
 <<ShowDoctor>>
 Doctor: Precisely. So, let's begin.
+<<SwitchToGameplay>>
 
 ===
 title: BibiStomachBoss
