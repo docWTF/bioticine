@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: d0ef71b95983eaf4d8eac7b70a735cdc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - stompParticleSystem: {fileID: 373721155793271806, guid: c32266df322959744868ab838beadeea,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

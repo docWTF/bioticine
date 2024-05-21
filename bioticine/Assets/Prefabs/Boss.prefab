@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4504841898248366545}
   - component: {fileID: 306619771153341068}
-  - component: {fileID: 3594958912814290585}
+  - component: {fileID: 1872377200346342542}
   m_Layer: 9
   m_Name: Attack
   m_TagString: Untagged
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAttackDamage: 75
   targetHit: []
---- !u!65 &3594958912814290585
-BoxCollider:
+--- !u!135 &1872377200346342542
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,8 +141,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.72872, y: 0.5, z: 2.5}
-  m_Center: {x: 0.0000011126201, y: 0.20000002, z: 0}
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1546381921595327467
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,8 +663,10 @@ GameObject:
   - component: {fileID: 4043898809142488209}
   - component: {fileID: 8652056771930897157}
   - component: {fileID: 7899354846934825184}
-  - component: {fileID: 2056251658314705274}
   - component: {fileID: 8232664654523249202}
+  - component: {fileID: 685475032441309928}
+  - component: {fileID: 672187535881955413}
+  - component: {fileID: 3602778450998978612}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Enemy
@@ -774,27 +776,6 @@ MonoBehaviour:
   maxHp: 500
   hp: 500
   soulsAmount: 5000
---- !u!65 &2056251658314705274
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5320732578750026754}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.1914682, y: 4, z: 1.75}
-  m_Center: {x: 0.08545868, y: 2, z: 0}
 --- !u!212 &8232664654523249202
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -847,6 +828,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &685475032441309928
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320732578750026754}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Height: 8
+  m_Direction: 1
+  m_Center: {x: 0, y: 3.1999998, z: 0}
+--- !u!54 &672187535881955413
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320732578750026754}
+  serializedVersion: 4
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3602778450998978612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5320732578750026754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ef71b95983eaf4d8eac7b70a735cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stompParticleSystem: {fileID: 373721155793271806, guid: c32266df322959744868ab838beadeea,
+    type: 3}
 --- !u!1 &5357833296066610176
 GameObject:
   m_ObjectHideFlags: 0
