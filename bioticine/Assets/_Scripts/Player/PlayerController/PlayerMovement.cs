@@ -36,7 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void ProcessMove(Vector2 input)
     {
-
+        if (PlayerStats.Instance.isSceneStart)
+        {
+            return;
+        }
 
         RaycastHit hit;
         Vector3 castPos = transform.position;

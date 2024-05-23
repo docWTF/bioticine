@@ -4,6 +4,8 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; private set; }
 
+    public bool isSceneStart;
+
     public float health = 1000;
     public float maxHealth = 1000;
     public float stamina = 500;
@@ -48,6 +50,8 @@ public class PlayerStats : MonoBehaviour
 
         RecalculateAllLevel();
         RecalculateAllStats();
+
+        isSceneStart = false;
     }
 
     private void Update()

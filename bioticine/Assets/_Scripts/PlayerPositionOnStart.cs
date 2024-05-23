@@ -6,10 +6,15 @@ public class PlayerPositionOnStart : MonoBehaviour
 {
     public GameObject player;
 
-    void Start()
+    void Awake()
     {
         player = PlayerStats.Instance.player;
-        player.transform.position = transform.position;
+        
+        if (player != null)
+        {
+            player.transform.position = transform.position;
+            PlayerStats.Instance.isSceneStart = false;
+        }
     }
 
 }
