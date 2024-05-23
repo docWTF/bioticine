@@ -125,6 +125,7 @@ namespace LlamAcademy.FSM
             EnemyFSM.Init();
 
             enemyAttack = GetComponentInChildren<EnemyAttack>();
+            Player = PlayerStats.Instance;
         }
 
         private void Start()
@@ -137,7 +138,7 @@ namespace LlamAcademy.FSM
             MeleePlayerSensor.OnPlayerExit += MeleePlayerSensor_OnPlayerExit;
             //RollImpactSensor.OnCollision += RollImpactSensor_OnCollision;
 
-            Player = PlayerStats.Instance;
+
         }
 
         //private void RollImpactSensor_OnCollision(Collision Collision)
