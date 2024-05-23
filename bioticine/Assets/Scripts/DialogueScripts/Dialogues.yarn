@@ -185,17 +185,21 @@ title: BibiEnding
 <<ShowBibi>>
 Bibi: Where am I?
 <<FadeOutAll>>
+<<FadeInCG "GlitchDoctor">>
 ???: Bibi?
 <<ShowBibi>>
 Bibi: Doctor?
+<<FadeOutCG "GlitchDoctor">>
+<<FadeInCG "Doctor">>
 <<ShowDoctor>>
 Doctor: Bibi! You made it!
 Doctor: Bibi, are your controls and senses back up?
 <<ShowBibi>>
-<<FadeInCG "BibiReport">>
 Bibi: Yes, Doctor. I'm still not used to switching bodies that seamlessly.
 Bibi: But aside from that, I'm okay now.
 Bibi: Have you received all the data I uploaded to the cloud?
+<<FadeOutCG "Doctor">>
+<<FadeInCG "BibiReport">>
 <<ShowDoctor>>
 Doctor: Yes, I have. And don't worry about not getting used to it, you'll get it with time.
 Doctor: You're a prototype in science's eyes, but to me, you're already perfect.
@@ -211,6 +215,7 @@ Doctor: I'm glad to see it worked out anyways.
 <<ShowBibi>>
 Bibi: I appreciate the sentiment, Doctor, but there is more work to be done.
 <<FadeOutCG "BibiReport">>
+<<FadeInCG "End">>
 <<ShowDoctor>>
 Doctor: Yes, yes. I know.
 Doctor: We must get back to work, I will need to fix you up a lot more.
@@ -221,6 +226,7 @@ Bibi: Treat?
 Doctor: A piece of raw beef. Your favorite organic matter or whatever.
 <<ShowBibi>>
 Bibi: Yay! Thank you!
+<<FadeOutCG "End">>
 <<FadeOutAll>>
 ???: Thank you for playing Bioticine!
 <<SwitchToMenu>>
