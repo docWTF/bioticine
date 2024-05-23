@@ -1,62 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;
-    private Wave currentwave;
-    [SerializeField] private Transform[] SpawnPoints;
+    private Wave currentWave;
+    [SerializeField] private Transform[] spawnPoints;
 
     private float timeBetweenSpawn;
-    private int i = 0;
+    private int currentWaveIndex = 0;
+    private bool stopSpawning = false;
 
-    private bool StopSpawning = false;
+    private List<int> occupiedSpawnPointIndices = new List<int>();
 
     private void Awake()
     {
-        currentwave = waves[i];
-        timeBetweenSpawn = currentwave.TimeBeforeThisWave;
+        StartNextWave();
     }
 
     private void Update()
     {
-        if (StopSpawning)
-        {
+        if (stopSpawning)
             return;
-        } 
 
-        if(Time.time >= timeBetweenSpawn)
-        {
-            SpawnWave();
-            IncWave();
-
-            timeBetweenSpawn = Time.time + currentwave.TimeBeforeThisWave;
-        }
+        if (AllEnemiesDefeated())
+            StartNextWave();
     }
 
-    private void SpawnWave()
+    private bool AllEnemiesDefeated()
     {
-        for(int i = 0; i < currentwave.NumberToSpawn; i++)
-        {
-            int num = Random.Range(0, currentwave.EnemiesInWaves.Length);   
-            int num2 = Random.Range(0, SpawnPoints.Length);
-
-            Instantiate(currentwave.EnemiesInWaves[num], SpawnPoints[num2].position, SpawnPoints[num2].rotation);
-        }
+        GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return totalEnemies.Length == 0;
     }
 
-    private void IncWave()
+    private void StartNextWave()
     {
-        if(i + 1 < waves.Length)
+        if (currentWaveIndex < waves.Length)
         {
-            i++;
-            currentwave = waves[i];
+            currentWave = waves[currentWaveIndex];
+            StartCoroutine(SpawnWave(currentWave));
+            currentWaveIndex++;
         }
         else
         {
-            StopSpawning = true;
+            stopSpawning = true;
+        }
+    }
+
+    private IEnumerator SpawnWave(Wave wave)
+    {
+        for (int i = 0; i < wave.NumberToSpawn; i++)
+        {
+            int enemyIndex = Random.Range(0, wave.EnemiesInWaves.Length);
+            int spawnPointIndex = GetAvailableSpawnPointIndex();
+
+            if (spawnPointIndex != -1)
+            {
+                Instantiate(wave.EnemiesInWaves[enemyIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                occupiedSpawnPointIndices.Add(spawnPointIndex);
+            }
+
+            yield return new WaitForSeconds(wave.TimeBetweenSpawns);
+        }
+
+        occupiedSpawnPointIndices.Clear(); // Clear the list after spawning the wave
+    }
+
+    private int GetAvailableSpawnPointIndex()
+    {
+        List<int> availableIndices = new List<int>();
+
+        // Populate the availableIndices list with indices of spawn points that are not occupied
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            if (!occupiedSpawnPointIndices.Contains(i))
+            {
+                availableIndices.Add(i);
+            }
+        }
+
+        if (availableIndices.Count > 0)
+        {
+            // Return a random index from the list of available indices
+            return availableIndices[Random.Range(0, availableIndices.Count)];
+        }
+        else
+        {
+            // No available spawn points
+            return -1;
         }
     }
 }
