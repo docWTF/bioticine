@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerStats : MonoBehaviour
     public float speedMultiplier;
     public GameObject player;
     public PlayerMovement playerMovement;
+    public Animator animator;
+    public bool isDead;
 
     public float staminaRegenRate = 30f;  
     public float staminaRegenDelay = 2f; 
@@ -47,6 +50,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         playerMovement = GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
 
         RecalculateAllLevel();
         RecalculateAllStats();
@@ -71,9 +75,11 @@ public class PlayerStats : MonoBehaviour
         if (!playerMovement.isDashing)
         {
             health -= damage;
-            if (health < 0)
+            if (health <= 0)
             {
                 health = 0;
+                isDead = true;
+                PlayerDeath();
             }
             Debug.Log("Health: " + health);
         }
@@ -110,8 +116,10 @@ public class PlayerStats : MonoBehaviour
             if (stamina > maxStamina) stamina = maxStamina;
         }
 
-    public void PlayerDeath()
+    public IEnumerator PlayerDeath()
     {
+        animator.SetBool("isDead", true);
+        yield return new WaitForSeconds(1f);
         Destroy(this);
     }
 

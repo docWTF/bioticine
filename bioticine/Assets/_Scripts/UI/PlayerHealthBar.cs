@@ -7,7 +7,7 @@ public class PlayerHealthBar : MonoBehaviour
     public Slider healthSlider;
     public PlayerStats playerStats;  // Reference to the PlayerStats component
 
-    private float LerpSpeed = 5f;
+    private float LerpSpeed = 2f;
 
     private void Start()
     {

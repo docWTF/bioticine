@@ -11,4 +11,6 @@ public class Wave : ScriptableObject
     public float TimeBeforeThisWave { get; private set; }
     [field: SerializeField]
     public float NumberToSpawn { get; private set; }
+
+
 }

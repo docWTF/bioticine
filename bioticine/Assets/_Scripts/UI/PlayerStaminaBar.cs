@@ -7,7 +7,7 @@ public class PlayerStaminaBar : MonoBehaviour
     public Slider staminaSlider;
     public PlayerStats playerStats;  // Reference to the PlayerStats component
 
-    private float LerpSpeed = 5f;
+    private float LerpSpeed = 2f;
 
     private void Start()
     {

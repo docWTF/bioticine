@@ -24,7 +24,7 @@ namespace LlamAcademy.FSM
 
         [Header("References")]
         [SerializeField]
-        private PlayerStats Player;
+        PlayerStats Player;
         //[SerializeField]
         //private Spit SpitPrefab;
         //[SerializeField]
@@ -72,8 +72,10 @@ namespace LlamAcademy.FSM
 
         private void Awake()
         {
+
             Agent = GetComponent<NavMeshAgent>();
             Animator = GetComponent<Animator>();
+            Player = PlayerStats.Instance;
             EnemyFSM = new();
 
             // Add States
@@ -125,7 +127,7 @@ namespace LlamAcademy.FSM
             EnemyFSM.Init();
 
             enemyAttack = GetComponentInChildren<EnemyAttack>();
-            Player = PlayerStats.Instance;
+
         }
 
         private void Start()
