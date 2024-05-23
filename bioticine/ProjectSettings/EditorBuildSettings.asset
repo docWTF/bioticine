@@ -12,9 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/StartingStory.unity
     guid: 56720596260a0f34f835dd91c598de81
   - enabled: 1
+    path: Assets/Scenes/MapNavigate.unity
+    guid: ab3d90667d6d1714ab3625ed02d4839e
+  - enabled: 1
     path: Assets/Scenes/EnemyAi.unity
     guid: 660c6d04ee858ce48aa948c30b729a4a
   - enabled: 1
     path: Assets/BossBattle.unity
     guid: bf6e33f653a3e4d48a7521108c8457f1
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 2007a5ed4c28ae641a885067da95feb4
+  - enabled: 1
+    path: Assets/Scenes/EndStory.unity
+    guid: 2d2d0e3f01ac7274cab2475b339fb7ff
   m_configObjects: {}
