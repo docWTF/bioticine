@@ -175,110 +175,42 @@ Patient: That only make things worse!
 <<FadeOutCG "Ayanna">>
 <<FadeOutAll>>
 <<StopSound>>
-<<jump BibiStomachStart>>
-===
-
-title: BibiStomachStart
----
-<<wait 3>>
-<<ShowBibi>>
-Bibi: Doctor, can you hear me?
-<<ShowDoctor>>
-Doctor: Yes, yes. I finally got the signal.
-Doctor: Where are you at?
-<<ShowBibi>>
-Bibi: Inside her stomach. It's extremely gastrous.
-<<ShowDoctor>>
-Doctor: Well, isn't it supposed to be?
-<<ShowBibi>>
-Bibi: Yeah, I'm just informing you, Doctor.
-Bibi: I'll start scanning now.
-Bibi: Biotic Scan!
-<<wait 2>>
-<<ShowDoctor>>
-Doctor: Got the data.
-Doctor: Sheesh, this thing always astonishes me. Being better than a damn expensive ultrasound too.
-<<ShowBibi>>
-Bibi: Doctor.
-<<ShowDoctor>>
-Doctor: Can't a guy complain every once in a while?
-<<ShowBibi>>
-Bibi: No. Especially not you.
-<<ShowDoctor>>
-Doctor: Anyways, traverse carefully. I don't want to wake up Ayanna too often now.
-<<ShowBibi>>
-Bibi: What, you're scared of overdosing her?
-<<ShowDoctor>>
-Doctor: I injected you into a painkiller. 
-Doctor: You understand the consequences, right?
-<<ShowBibi>>
-Bibi: Sigh... yes.
-<<ShowDoctor>>
-Doctor: Precisely. So, let's begin.
 <<SwitchToGameplay>>
-
-===
-title: BibiStomachBoss
----
-<<ShowDoctor>>
-Doctor: Bibi, you're super close to the cancer cell.
-<<ShowBibi>>
-Bibi: I mean, I'm already here.
-Bibi: I'm right in it's vicinity.
-<<ShowDoctor>>
-Doctor: Whaaat? That quick?
-<<ShowBibi>>
-Bibi: Doctor. Not the time to joke around.
-Bibi: Especially when you've personally been tracking my progress!
-<<ShowDoctor>>
-Doctor: Jeez, lax a little.
-<<ShowBibi>>
-Bibi: So... What am I supposed to do?
-Bibi: You're supposed to guide me.
-<<ShowDoctor>>
-Doctor: Okay, so, do you know those roguelike games?
-<<ShowBibi>>
-Bibi: Yeah? I've seen you play a few.
-<<ShowDoctor>>
-Doctor: And you know how there's a boss?
-<<ShowBibi>>
-Bibi: Mhm? What are you implying.
-<<ShowDoctor>>
-Doctor: I'm saying you have to fight it like one.
-<<ShowBibi>>
-Bibi: Oh. OH! Okay!
-<<ShowDoctor>>
-Doctor: That was surprisingly easy.
+<<stop>>
 ===
 
-title: BibiEnd
+title: BibiEnding
 ---
+
 <<ShowBibi>>
 Bibi: Where am I?
+<<FadeOutAll>>
 ???: Bibi?
 <<ShowBibi>>
-Bibi: Hello? All my functions are restoring slowly.
-???: Bibi! You made it!
-<<ShowBibi>>
-Bibi: That voice... Doctor?
+Bibi: Doctor?
 <<ShowDoctor>>
+Doctor: Bibi! You made it!
 Doctor: Bibi, are your controls and senses back up?
 <<ShowBibi>>
+<<FadeInCG "BibiReport">>
 Bibi: Yes, Doctor. I'm still not used to switching bodies that seamlessly.
 Bibi: But aside from that, I'm okay now.
+Bibi: Have you received all the data I uploaded to the cloud?
 <<ShowDoctor>>
-Doctor: That's good. You'll get used to it eventually.
+Doctor: Yes, I have. And don't worry about not getting used to it, you'll get it with time.
 Doctor: You're a prototype in science's eyes, but to me, you're already perfect.
 Doctor: A perfect nanomachine.
 Doctor: The specimen that will save humanity from it's own chronic disease one by one.
 <<ShowBibi>>
 Bibi: You're... being weird. Stop that.
 <<ShowDoctor>>
-Doctor: Sorry, haha... Just admiring my lifelong's work.
+Doctor: Sorry. Just admiring my lifelong's work.
 Doctor: I mean, think about it: You pour your years into one work, and they're just perfect!
-Doctor: Like you mentioned before, there's always trial and error, but hey, it worked out in the end.
+Doctor: Like you mentioned before, there's always trial and error.
+Doctor: I'm glad to see it worked out anyways.
 <<ShowBibi>>
 Bibi: I appreciate the sentiment, Doctor, but there is more work to be done.
+<<FadeOutCG "BibiReport">>
 <<ShowDoctor>>
 Doctor: Yes, yes. I know.
 Doctor: We must get back to work, I will need to fix you up a lot more.
@@ -286,7 +218,11 @@ Doctor: And hey, since you performed well today, why don't I treat you to someth
 <<ShowBibi>>
 Bibi: Treat?
 <<ShowDoctor>>
-Doctor: A piece of raw beef. Your favorite organic matter to chew on.
+Doctor: A piece of raw beef. Your favorite organic matter or whatever.
 <<ShowBibi>>
-Bibi: Yay! Raw Beef!
+Bibi: Yay! Thank you!
+<<FadeOutAll>>
+???: Thank you for playing Bioticine!
+<<SwitchToMenu>>
+<<stop>>
 ===
