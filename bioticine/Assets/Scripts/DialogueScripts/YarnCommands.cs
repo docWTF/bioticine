@@ -80,7 +80,7 @@ public class YarnCommands : MonoBehaviour
             yield return new WaitForSeconds(transitionTime);
         }
         // After the fade-out, load the gameplay scene
-        SceneManager.LoadScene("EnemyAI"); // Use the correct name for your gameplay scene
+        SceneManager.LoadScene("MapNavigate"); // Use the correct name for your gameplay scene
     }
 
     private IEnumerator SwitchToMenu()
