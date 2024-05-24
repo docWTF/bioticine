@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 6560887960268297658}
+  gate: {fileID: 0}
   maxHp: 20
   hp: 20
   soulsAmount: 50
@@ -216,7 +217,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ca39cfdeff7691442a90fb9455609e88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -263,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSensor: {fileID: 1956165927151689429}
   explosionDamage: 25
+  gate: {fileID: 0}
   canvas: {fileID: 2891832418740954332}
   canvasPosition: {fileID: 4504837252802820639}
   canvasOffset: {x: 0, y: 0, z: 0}

@@ -10,6 +10,9 @@ public class Virus : MonoBehaviour
     private NavMeshAgent agent;
     private Transform playerTransform;
     private Animator animator;
+    private Collider collider;
+
+    public Gate gate;
 
     [SerializeField]
     private Canvas canvas;
@@ -23,6 +26,8 @@ public class Virus : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false; // Disable automatic rotation
         animator = GetComponent<Animator>(); // Get the Animator component
+        collider = GetComponent<Collider>();
+        gate = FindObjectOfType<Gate>();
 
         playerSensor.OnPlayerEnter += PlayerDetected;
         playerSensor.OnPlayerExit += PlayerLost;
@@ -85,21 +90,19 @@ public class Virus : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
         {
-            animator.SetTrigger("Explode"); // Trigger the explode animation
+            animator.SetTrigger("Explode");
+            collider.enabled = false;
         }
     }
 
     // This method will be called at the end of the explode animation
     public void OnExplosionEnd()
     {
-        Debug.Log("Explosion animation ended."); // Example: Print a message when the explosion animation ends
-
-        // Inflict damage on the player
+        gate.EnemyDefeated();
         if (playerTransform != null)
         {
             playerTransform.GetComponent<PlayerStats>().TakeDamage(explosionDamage);
         }
-
         Destroy(gameObject); // Destroy the Virus GameObject after the explosion animation ends
     }
 }

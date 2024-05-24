@@ -53,7 +53,6 @@ public class BubbleSpawner : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Debug.Log("Drawing Gizmos!");
         // Draw spawner position
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, 0, transform.position.z), 0.5f);

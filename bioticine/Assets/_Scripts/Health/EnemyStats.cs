@@ -5,6 +5,7 @@ public class EnemyStats : MonoBehaviour
     public HealthBar healthBar;
 
     private float lastHp;
+    public Gate gate;
 
     [SerializeField] public float maxHp = 100;
     public float hp;
@@ -44,6 +45,7 @@ public class EnemyStats : MonoBehaviour
         healthBar = GetComponentInChildren<HealthBar>();
         hp = maxHp;
         lastHp = hp;
+        gate = FindObjectOfType<Gate>();
     }
 
     public void Damage(float amount)
@@ -89,7 +91,7 @@ public class EnemyStats : MonoBehaviour
 
     public void OnDied(float newHealth)
     {
-        
+        gate.EnemyDefeated();
         PlayerStats.Instance.AddSouls(soulsAmount);
         Debug.Log("Died: " + newHealth);
         Destroy(gameObject); // Example: Set the GameObject inactive
