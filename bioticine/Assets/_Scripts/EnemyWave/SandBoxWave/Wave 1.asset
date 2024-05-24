@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30b6109079e0b7c40abb2ad0995527f3, type: 3}
-  m_Name: Wave
+  m_Name: Wave 1
   m_EditorClassIdentifier: 
   <EnemiesInWaves>k__BackingField:
-  - {fileID: 5320732578750026754, guid: 78ee43f71bda0dd499d86a99ea61dad5, type: 3}
-  <TimeBeforeThisWave>k__BackingField: 15
-  <NumberToSpawn>k__BackingField: 1
+  - {fileID: 5989462035531621624, guid: 654842086a6a7354f8ef41ec487841be, type: 3}
+  <TimeBeforeThisWave>k__BackingField: 5
+  <NumberToSpawn>k__BackingField: 2

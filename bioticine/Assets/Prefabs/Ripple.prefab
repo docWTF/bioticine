@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 395058399338983891}
   - component: {fileID: 3900640920428550291}
   - component: {fileID: 8350225623284231856}
-  - component: {fileID: 4486607688442748208}
   m_Layer: 6
   m_Name: Ripple
   m_TagString: Untagged
@@ -107,19 +106,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4486607688442748208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4756463273791072263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ba8421d831decc40939d38c4b8dc637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 5
 --- !u!1 &8534746088733777351
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8740967897441723445}
+  - component: {fileID: 5229447035628243868}
   m_Layer: 0
   m_Name: Ripple
   m_TagString: Untagged
@@ -152,3 +139,16 @@ Transform:
   - {fileID: 395058399338983891}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5229447035628243868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534746088733777351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba8421d831decc40939d38c4b8dc637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 5
