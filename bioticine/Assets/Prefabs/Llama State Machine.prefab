@@ -608,7 +608,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f820292294d14499efec59f0c95cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttackDamage: 50
+  enemyAttackDamage: 30
   targetHit: []
 --- !u!135 &1461628436434746597
 SphereCollider:

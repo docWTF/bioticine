@@ -6,22 +6,22 @@ public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;
     private Wave currentWave;
-    [SerializeField] private Transform[] spawnPoints;
 
-    private float timeBetweenSpawn;
+    [SerializeField] private Vector2 spawnAreaCenter; // Center of the spawn area
+    [SerializeField] private Vector2 spawnAreaSize;   // Size of the spawn area
+
     private int currentWaveIndex = 0;
     private bool stopSpawning = false;
+    private bool isSpawning = false;
 
-    private List<int> occupiedSpawnPointIndices = new List<int>();
-
-    private void Awake()
+    private void Start()
     {
         StartNextWave();
     }
 
     private void Update()
     {
-        if (stopSpawning)
+        if (stopSpawning || isSpawning)
             return;
 
         if (AllEnemiesDefeated())
@@ -39,56 +39,62 @@ public class WaveSpawner : MonoBehaviour
         if (currentWaveIndex < waves.Length)
         {
             currentWave = waves[currentWaveIndex];
+            if (currentWaveIndex == 0) // First wave starts, play music
+            {
+                MusicManager.instance.PlayFightingMusic();
+            }
             StartCoroutine(SpawnWave(currentWave));
             currentWaveIndex++;
         }
         else
         {
             stopSpawning = true;
+            MusicManager.instance.StopMusic(); // Stop the music when all waves are completed
         }
     }
 
     private IEnumerator SpawnWave(Wave wave)
     {
+        isSpawning = true; // Set the flag to true to indicate spawning is in progress
+
+        Debug.Log("Spawning wave: " + currentWaveIndex);
+
         for (int i = 0; i < wave.NumberToSpawn; i++)
         {
             int enemyIndex = Random.Range(0, wave.EnemiesInWaves.Length);
-            int spawnPointIndex = GetAvailableSpawnPointIndex();
+            Vector3 spawnPosition = GetRandomSpawnPosition();
 
-            if (spawnPointIndex != -1)
-            {
-                Instantiate(wave.EnemiesInWaves[enemyIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-                occupiedSpawnPointIndices.Add(spawnPointIndex);
-            }
+            Instantiate(wave.EnemiesInWaves[enemyIndex], spawnPosition, Quaternion.identity);
 
             yield return new WaitForSeconds(wave.TimeBetweenSpawns);
         }
 
-        occupiedSpawnPointIndices.Clear(); // Clear the list after spawning the wave
+        isSpawning = false; // Reset the flag to false as spawning is complete
+
+        // Wait for all enemies to be defeated before starting the next wave
+        StartCoroutine(CheckForNextWave());
     }
 
-    private int GetAvailableSpawnPointIndex()
+    private IEnumerator CheckForNextWave()
     {
-        List<int> availableIndices = new List<int>();
+        while (!AllEnemiesDefeated())
+        {
+            yield return new WaitForSeconds(1f); // Check every second if all enemies are defeated
+        }
+        StartNextWave();
+    }
 
-        // Populate the availableIndices list with indices of spawn points that are not occupied
-        for (int i = 0; i < spawnPoints.Length; i++)
-        {
-            if (!occupiedSpawnPointIndices.Contains(i))
-            {
-                availableIndices.Add(i);
-            }
-        }
+    private Vector3 GetRandomSpawnPosition()
+    {
+        float randomX = Random.Range(spawnAreaCenter.x - spawnAreaSize.x / 2, spawnAreaCenter.x + spawnAreaSize.x / 2);
+        float randomZ = Random.Range(spawnAreaCenter.y - spawnAreaSize.y / 2, spawnAreaCenter.y + spawnAreaSize.y / 2);
+        return new Vector3(randomX, 0, randomZ);
+    }
 
-        if (availableIndices.Count > 0)
-        {
-            // Return a random index from the list of available indices
-            return availableIndices[Random.Range(0, availableIndices.Count)];
-        }
-        else
-        {
-            // No available spawn points
-            return -1;
-        }
+    private void OnDrawGizmosSelected()
+    {
+        // Draw the spawn area as a red rectangle in the scene view
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(new Vector3(spawnAreaCenter.x, 0, spawnAreaCenter.y), new Vector3(spawnAreaSize.x, 0, spawnAreaSize.y));
     }
 }
