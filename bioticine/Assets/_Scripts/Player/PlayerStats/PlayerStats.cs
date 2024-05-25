@@ -55,6 +55,8 @@ public class PlayerStats : MonoBehaviour
         RecalculateAllLevel();
         RecalculateAllStats();
 
+        RestoreHealth(maxHealth -  health);
+
         isSceneStart = false;
     }
 

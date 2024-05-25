@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private PlayerControls.PlayerActions player;
     private PlayerMovement playerMovement;
     private PlayerActions playerActions;
+    private PlayerLevelingUI playerLevelingUI;
+
 
     void Awake()
     {
@@ -18,9 +20,11 @@ public class PlayerController : MonoBehaviour
 
         playerMovement = GetComponent<PlayerMovement>();
         playerActions = GetComponent<PlayerActions>();
+        playerLevelingUI = GetComponent<PlayerLevelingUI>();
 
         player.Dash.performed += ctx => playerMovement.Dash(player.Movement.ReadValue<Vector2>());
         player.Attack.performed += ctx => playerActions.Attack();
+        player.OpenLevelingUI.performed += ctx => playerLevelingUI.OpenLevelingUI();
 
     }
 

@@ -777,7 +777,7 @@ MonoBehaviour:
   gate: {fileID: 0}
   maxHp: 500
   hp: 500
-  soulsAmount: 5000
+  soulsAmount: 3500
 --- !u!212 &8232664654523249202
 SpriteRenderer:
   m_ObjectHideFlags: 0
