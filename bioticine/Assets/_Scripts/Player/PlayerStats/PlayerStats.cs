@@ -1,12 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; private set; }
 
+    public int newGamePlus;
+    public bool isAllowLevelUp;
     public bool isSceneStart;
 
+    public int playerLevel;
+    public int soulsRequirement;
     public float health = 1000;
     public float maxHealth = 1000;
     public float stamina = 500;
@@ -30,12 +35,12 @@ public class PlayerStats : MonoBehaviour
     public int levelDex;
     public int levelDiscovery;
 
-    public int levelHealthCoeffecient;
-    public int levelStaminaCoeffecient;
-    public int levelDamageCoeffecient;
-    public int levelDexCoeffecient;
-    public int levelDiscoveryCoeffecient;
-    public int levelingCoeffecient;
+    public int levelHealthCoefficient;
+    public int levelStaminaCoefficient;
+    public int levelDamageCoefficient;
+    public int levelDexCoefficient;
+    public int levelDiscoveryCoefficient;
+    public int levelingCoefficient;
 
     private void Awake()
     {
@@ -54,6 +59,8 @@ public class PlayerStats : MonoBehaviour
 
         RecalculateAllLevel();
         RecalculateAllStats();
+        CalculatePlayerLevel();
+        CalculateLevelRequirement();
 
         RestoreHealth(maxHealth -  health);
 
@@ -118,11 +125,10 @@ public class PlayerStats : MonoBehaviour
             if (stamina > maxStamina) stamina = maxStamina;
         }
 
-    public IEnumerator PlayerDeath()
+    public void PlayerDeath()
     {
-        animator.SetBool("isDead", true);
-        yield return new WaitForSeconds(1f);
-        Destroy(this);
+        SceneManager.LoadScene("Death");
+        gameObject.SetActive(false);
     }
 
     public void AddSouls(int amount)
@@ -153,124 +159,134 @@ public class PlayerStats : MonoBehaviour
         CalculateLevelDiscovery();
     }
 
+    public void CalculatePlayerLevel()
+    {
+        playerLevel = levelHealth + levelStamina + levelDamage + levelDex + levelDiscovery;
+    }
+
+    public void CalculateLevelRequirement()
+    {
+        soulsRequirement = Mathf.RoundToInt(200 * Mathf.Pow(1 + 0.25f, playerLevel - 1));
+    }
+
     public void RecalculateHitpoint()
     {
-        maxHealth += maxHealth * levelHealthCoeffecient * 0.05f;
+        maxHealth += maxHealth * levelHealthCoefficient * 0.05f;
     }
 
     public void RecalculateStamina()
     {
-        maxStamina += maxStamina * levelStaminaCoeffecient * 0.1f;
+        maxStamina += maxStamina * levelStaminaCoefficient * 0.1f;
     }
 
     public void RecalculateDamage()
     {
-        weaponDamageMultiplier *= levelDamageCoeffecient; 
+        weaponDamageMultiplier *= levelDamageCoefficient; 
     }
 
     public void RecalculateDex()
     {
-        speedMultiplier *= levelDexCoeffecient;
+        speedMultiplier *= levelDexCoefficient;
     }
 
     public void RecalculateDiscovery()
     {
-        discoveryMultiplier *= levelDiscoveryCoeffecient;
+        discoveryMultiplier *= levelDiscoveryCoefficient;
     }
 
     public void CalculateLevelHealth()
     {
-        levelHealthCoeffecient = levelHealth;
+        levelHealthCoefficient = levelHealth;
 
-        if (levelStamina >= levelingCoeffecient)
+        if (levelStamina >= levelingCoefficient)
         {
-            levelHealthCoeffecient -= levelStamina / levelingCoeffecient;
+            levelHealthCoefficient -= levelStamina / levelingCoefficient;
         }
 
-        if (levelDamage >= levelingCoeffecient)
+        if (levelDamage >= levelingCoefficient)
         {
-            levelHealthCoeffecient += levelDamage / levelingCoeffecient;
+            levelHealthCoefficient += levelDamage / levelingCoefficient;
         }
 
-        if (levelHealthCoeffecient <= 0)
+        if (levelHealthCoefficient <= 0)
         {
-            levelHealthCoeffecient = 1;
+            levelHealthCoefficient = 1;
         }
     }
 
     public void CalculateLevelStamina()
     {
-        levelStaminaCoeffecient = levelStamina;
+        levelStaminaCoefficient = levelStamina;
 
-        if (levelDamage >= levelingCoeffecient)
+        if (levelDamage >= levelingCoefficient)
         {
-            levelStaminaCoeffecient -= levelDamage / levelingCoeffecient;
+            levelStaminaCoefficient -= levelDamage / levelingCoefficient;
         }
 
-        if (levelDex >= levelingCoeffecient)
+        if (levelDex >= levelingCoefficient)
         {
-            levelStaminaCoeffecient += levelDex / levelingCoeffecient;
+            levelStaminaCoefficient += levelDex / levelingCoefficient;
         }
 
-        if (levelStaminaCoeffecient <= 0)
+        if (levelStaminaCoefficient <= 0)
         {
-            levelStaminaCoeffecient = 1;
+            levelStaminaCoefficient = 1;
         }
     }
 
     public void CalculateLevelDamage()
     {
-        levelDamageCoeffecient = levelDamage;
+        levelDamageCoefficient = levelDamage;
 
-        if (levelDex >= levelingCoeffecient)
+        if (levelDex >= levelingCoefficient)
         {
-            levelDamageCoeffecient -= levelDex / levelingCoeffecient;
+            levelDamageCoefficient -= levelDex / levelingCoefficient;
         }
 
-        if (levelHealth >= levelingCoeffecient)
+        if (levelHealth >= levelingCoefficient)
         {
-            levelDamageCoeffecient += levelHealth / levelingCoeffecient;
+            levelDamageCoefficient += levelHealth / levelingCoefficient;
         }
 
-        if (levelDiscovery >= levelingCoeffecient)
+        if (levelDiscovery >= levelingCoefficient)
         {
-            levelDamageCoeffecient -= levelDiscovery / levelingCoeffecient;
+            levelDamageCoefficient -= levelDiscovery / levelingCoefficient;
         }
 
-        if (levelDamageCoeffecient <= 0)
+        if (levelDamageCoefficient <= 0)
         {
-            levelDamageCoeffecient = 1;
+            levelDamageCoefficient = 1;
         }
     }
 
     public void CalculateLevelDex()
     {
-        levelDexCoeffecient = levelDex;
+        levelDexCoefficient = levelDex;
 
-        if (levelDex >= levelingCoeffecient)
+        if (levelDex >= levelingCoefficient)
         {
-            levelDamageCoeffecient -= levelDex / levelingCoeffecient;
+            levelDamageCoefficient -= levelDex / levelingCoefficient;
         }
 
-        if (levelHealth >= levelingCoeffecient)
+        if (levelHealth >= levelingCoefficient)
         {
-            levelDamageCoeffecient += levelHealth / levelingCoeffecient;
+            levelDamageCoefficient += levelHealth / levelingCoefficient;
         }
 
-        if (levelDiscovery >= levelingCoeffecient)
+        if (levelDiscovery >= levelingCoefficient)
         {
-            levelDexCoeffecient -= levelDiscovery / levelingCoeffecient;
+            levelDexCoefficient -= levelDiscovery / levelingCoefficient;
         }
 
-        if (levelDamageCoeffecient <= 0)
+        if (levelDamageCoefficient <= 0)
         {
-            levelDamageCoeffecient = 1;
+            levelDamageCoefficient = 1;
         }
     }
 
     public void CalculateLevelDiscovery()
     {
-        levelDiscoveryCoeffecient = levelDiscovery;
+        levelDiscoveryCoefficient = levelDiscovery;
     }
 
 }

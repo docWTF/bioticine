@@ -42,6 +42,7 @@ public class EnemyStats : MonoBehaviour
 
     private void Awake()
     {
+        maxHp += PlayerStats.Instance.newGamePlus * 0.25f * maxHp;
         healthBar = GetComponentInChildren<HealthBar>();
         hp = maxHp;
         lastHp = hp;
@@ -93,6 +94,7 @@ public class EnemyStats : MonoBehaviour
     {
         gate.EnemyDefeated();
         PlayerStats.Instance.AddSouls(soulsAmount);
+        PlayerStats.Instance.newGamePlus += 1;
         Debug.Log("Died: " + newHealth);
         Destroy(gameObject); // Example: Set the GameObject inactive
     }

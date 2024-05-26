@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EnemyAi.unity
     guid: 660c6d04ee858ce48aa948c30b729a4a
   - enabled: 1
-    path: Assets/BossBattle.unity
+    path: Assets/Scenes/BossBattle.unity
     guid: bf6e33f653a3e4d48a7521108c8457f1
   - enabled: 1
     path: Assets/Scenes/Death.unity

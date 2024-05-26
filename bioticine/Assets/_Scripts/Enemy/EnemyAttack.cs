@@ -7,6 +7,10 @@ public class EnemyAttack : MonoBehaviour
     public float enemyAttackDamage;
     public List<GameObject> targetHit = new List<GameObject>();
 
+    private void Awake()
+    {
+        enemyAttackDamage += enemyAttackDamage * 0.25f * PlayerStats.Instance.newGamePlus;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")) //add more tag if you need to make the enemy attack interact with more than just the player

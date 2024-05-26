@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         animator.SetBool("isDashing", true);
         float originalSpeed = speed; 
-        speed = dashSpeed + (PlayerStats.Instance.levelStaminaCoeffecient * dashSpeedCoeffecient);
+        speed = dashSpeed + (PlayerStats.Instance.levelStaminaCoefficient * dashSpeedCoeffecient);
         rigidBody.velocity = dashDirection * speed; 
 
         yield return new WaitForSeconds(iFrameSeconds);

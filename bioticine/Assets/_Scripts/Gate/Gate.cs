@@ -15,6 +15,7 @@ public class Gate : MonoBehaviour
         if (other.CompareTag("Player") && gateActivated)
         {
             // Load the next scene
+            PlayerStats.Instance.isAllowLevelUp = false;
             SceneManager.LoadScene(nextScene.name);
         }
     }
@@ -29,6 +30,7 @@ public class Gate : MonoBehaviour
         if (enemiesDefeated >= requiredEnemiesDefeated && !gateActivated)
         {
             ActivateGate();
+            PlayerStats.Instance.isAllowLevelUp = true;
         }
     }
 
