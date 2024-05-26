@@ -42,7 +42,6 @@ public class EnemyStats : MonoBehaviour
 
     private void Awake()
     {
-        maxHp += PlayerStats.Instance.newGamePlus * 0.25f * maxHp;
         healthBar = GetComponentInChildren<HealthBar>();
         hp = maxHp;
         lastHp = hp;
