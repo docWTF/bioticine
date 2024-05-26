@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4065c31f4f248e4587ea09ac8bee0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredEnemiesDefeated: 3
+  requiredEnemiesDefeated: 12
   nextScene: {fileID: 102900000, guid: bf6e33f653a3e4d48a7521108c8457f1, type: 3}
   gateAnimator: {fileID: 58793245}
 --- !u!212 &58793244

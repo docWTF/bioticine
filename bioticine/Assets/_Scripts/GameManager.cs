@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerStats.Instance.isDead)
         {
+            PlayerStats.Instance.health = PlayerStats.Instance.maxHealth;
             PlayerStats.Instance.isDead = false;
             PlayerStats.Instance.gameObject.transform.position = spawnPosition.transform.position;
             PlayerStats.Instance.gameObject.SetActive(true);

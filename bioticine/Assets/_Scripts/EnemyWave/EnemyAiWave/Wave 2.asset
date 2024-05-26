@@ -15,4 +15,4 @@ MonoBehaviour:
   enemiesInWaves:
   - {fileID: 5989462035531621624, guid: 654842086a6a7354f8ef41ec487841be, type: 3}
   timeBetweenSpawns: 1
-  numberToSpawn: 1
+  numberToSpawn: 2

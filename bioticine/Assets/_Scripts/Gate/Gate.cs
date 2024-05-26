@@ -15,6 +15,7 @@ public class Gate : MonoBehaviour
         if (other.CompareTag("Player") && gateActivated)
         {
             // Load the next scene
+            PlayerStats.Instance.RestoreHealth(PlayerStats.Instance.maxHealth * 0.2f);
             PlayerStats.Instance.isAllowLevelUp = false;
             SceneManager.LoadScene(nextScene.name);
         }
